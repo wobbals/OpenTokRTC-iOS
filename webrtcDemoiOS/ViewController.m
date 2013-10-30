@@ -92,7 +92,7 @@
     if ([[segue identifier] isEqualToString:@"startChat"])
     {
         [RoomName resignFirstResponder];
-        
+        NSLog(@"going to chat room...");
         RoomViewController *vc = [segue destinationViewController];
         vc.rid = [[RoomName text] stringByReplacingOccurrencesOfString:@" " withString:@""];
     }

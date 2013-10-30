@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>FC32B8DE-BE2A-4EB1-AD0F-E16EAD4C5C9A</string>
+	<string>579E2E85-F40C-4366-A257-459C43EB5553</string>
 	<key>IDESourceControlProjectName</key>
 	<string>OpenTokRTC</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>A6872276-D3AD-45F8-9FEC-00568887410D</key>
-		<string>ssh://github.com/songz/OpenTokRTCiOS.git</string>
+		<key>9411ACD9-CFB4-416D-B24A-4A77A5F713CB</key>
+		<string>ssh://github.com/opentok/OpenTokRTC-iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>OpenTokRTC.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>A6872276-D3AD-45F8-9FEC-00568887410D</key>
+		<key>9411ACD9-CFB4-416D-B24A-4A77A5F713CB</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/songz/OpenTokRTCiOS.git</string>
+	<string>ssh://github.com/opentok/OpenTokRTC-iOS.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>A6872276-D3AD-45F8-9FEC-00568887410D</string>
+	<string>9411ACD9-CFB4-416D-B24A-4A77A5F713CB</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>A6872276-D3AD-45F8-9FEC-00568887410D</string>
+			<string>9411ACD9-CFB4-416D-B24A-4A77A5F713CB</string>
 			<key>IDESourceControlWCCName</key>
 			<string>webrtcDemoiOS</string>
 		</dict>

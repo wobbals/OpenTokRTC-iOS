@@ -96,21 +96,11 @@
     
     // Set background appearance
     UIGraphicsBeginImageContext(videoContainerView.frame.size);
-    NSLog(@"width: %f, height: %f", videoContainerView.frame.size.width, videoContainerView.frame.size.height);
-    [[UIImage imageNamed:@"silhouetteman.jpg"] drawInRect:videoContainerView.bounds];
+    [[UIImage imageNamed:@"silhouetteman.png"] drawInRect:videoContainerView.bounds];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     videoContainerView.backgroundColor = [UIColor colorWithPatternImage:image];
 }
-
-
-- (void) scrollChatTable{
-    if (chatTable.contentSize.height > chatTable.frame.size.height){
-        CGPoint offset = CGPointMake(0, chatTable.contentSize.height - chatTable.frame.size.height);
-        [chatTable setContentOffset:offset animated:YES];
-    }
-}
-
 
 - (void) setupRoom {
     // get screen bounds
@@ -119,6 +109,7 @@
     
     // create publisher and style publisher
     publisher = [[OTPublisher alloc] initWithDelegate:self];
+    publisher.publishAudio = NO;
     float diameter = 100.0;
     [publisher.view setFrame:CGRectMake( containerWidth-90, containerHeight-60, diameter, diameter)];
     publisher.view.layer.cornerRadius = diameter/2.0;
@@ -133,38 +124,32 @@
     
     // Connect to OpenTok session
     NSLog(@"room info: %@", roomInfo);
-    NSLog(@"room info: %@", roomInfo);
-    NSLog(@"room info: %@", roomInfo);
-    NSLog(@"room info: %@", roomInfo);
     _session = [[OTSession alloc] initWithSessionId: [roomInfo objectForKey:@"sid"] delegate:self];
     [_session receiveSignalType:@"initialize" withHandler:^(NSString *type, id data, OTConnection *fromConnection) {
         if (initialized) {
             return;
         }
-        NSDictionary* roomData = (NSDictionary* ) data;
-        NSLog(@"Room filter: %@", [roomData valueForKey:@"filter"]);
-        
+        NSDictionary* roomData = (NSDictionary* ) data; // filters ignored
         // set room users
         NSDictionary* roomDataUsers = (NSDictionary* ) [roomData valueForKey:@"users"];
         for (id key in roomDataUsers) {
             [roomUsers setValue:[roomDataUsers objectForKey:key] forKey:key];
         }
+        [roomUsers setObject:userName forKey:_session.connection.connectionId];
+        [self setSelectStreamButton];
         // set room chat info
         for (id key in (NSArray* )[roomData valueForKey:@"chat"]) {
-            [chatData addObject: (NSDictionary* )key ];
-            [chatTable reloadData];
+            [self updateChatTable: (NSDictionary*) key];
         }
         initialized = YES;
-        [self scrollChatTable];
     }];
     [_session receiveSignalType:@"chat" withHandler:^(NSString *type, id data, OTConnection *fromConnection) {
-        [chatData addObject: (NSDictionary* ) data ];
-        [chatTable reloadData];
-        [self scrollChatTable];
+        [self updateChatTable: (NSDictionary*) data];
     }];
     [_session receiveSignalType:@"name" withHandler:^(NSString *type, id data, OTConnection *fromConnection) {
         NSArray* nameData = (NSArray* ) data;
         [roomUsers setObject:[nameData objectAtIndex:1] forKey:[nameData objectAtIndex:0]];
+        [self setSelectStreamButton];
     }];
     
     // Add session event listeners
@@ -204,9 +189,14 @@
         NSString* guestName = [[NSString alloc] initWithFormat:@"Guest-%@", [connection.connectionId substringFromIndex: (connection.connectionId.length - 8)] ];
         [roomUsers setObject: guestName forKey:connection.connectionId];
     }
+    [self updateChatTable:@{@"name":userName ,@"text": [[NSString alloc] initWithFormat:@"/serv %@ has joined the room", [roomUsers objectForKey:connection.connectionId] ]}];
+    if ([roomUsers count] <= 2) { // me and someone else
+        [_session signalWithType:@"initialize" data:@{@"chat":chatData ,@"filter": @{}, @"users": roomUsers} connections: @[connection] completionHandler:^(NSError* error){}];
+    }
     NSLog(@"addConnection: %@", roomUsers);
 }
 - (void)session:(OTSession*)mySession didDropConnection:(OTConnection *)connection{
+    [self updateChatTable:@{@"name":userName ,@"text": [[NSString alloc] initWithFormat:@"/serv %@ has left the room", [roomUsers objectForKey:connection.connectionId] ]}];
     [roomUsers removeObjectForKey: connection.connectionId];
     NSLog(@"dropConnection: %@", roomUsers);
 }
@@ -214,15 +204,15 @@
 - (void)sessionDidConnect:(OTSession*)session
 {
     userName = [[NSString alloc] initWithFormat:@"Guest-%@", [_session.connection.connectionId substringFromIndex: (_session.connection.connectionId.length - 8)] ];
-    [roomUsers setObject:userName forKey:_session.connection.connectionId];
-    [userSelectButton.titleLabel setText: userName];
+    if (roomUsers) {
+        [roomUsers setObject:userName forKey:_session.connection.connectionId];
+    }
     [_session publish:publisher];
 }
 
 - (void)sessionDidDisconnect:(OTSession*)session
 {
-    _subscriber = NULL;
-    [self.navigationController popViewControllerAnimated:YES];
+    [self leaveRoom];
 }
 
 
@@ -231,6 +221,7 @@
     // make sure we don't subscribe to ourselves
     if (![stream.connection.connectionId isEqualToString: _session.connection.connectionId] && !_subscriber){
         _subscriber = [[OTSubscriber alloc] initWithStream:stream delegate:self];
+        _subscriber.subscribeToAudio = NO;
         
         // get name of subscribed stream and set the button text to currently subscribed stream
         NSString* streamName = [roomUsers objectForKey: stream.connection.connectionId];
@@ -262,17 +253,13 @@
 - (void)session:(OTSession*)session didFailWithError:(OTError*)error {
     NSLog(@"sessionDidFail");
     [self showAlert:[NSString stringWithFormat:@"There was an error connecting to session %@", session.sessionId]];
-    
-    // leave room
-    [self.navigationController popViewControllerAnimated:YES];
+    [self leaveRoom];
 }
 
 - (void)publisher:(OTPublisher*)publisher didFailWithError:(OTError*) error {
     NSLog(@"publisher didFailWithError %@", error);
     [self showAlert:[NSString stringWithFormat:@"There was an error publishing."]];
-    
-    // leave room
-    [self.navigationController popViewControllerAnimated:YES];
+    [self leaveRoom];
 }
 - (void)subscriber:(OTSubscriber *)subscriber didFailWithError:(OTError *)error{
     NSLog(@"subscriber could not connect to stream");
@@ -282,6 +269,20 @@
 }
 
 #pragma mark - Helper Methods
+- (void)leaveRoom{
+    if (_session && _session.sessionConnectionStatus==OTSessionConnectionStatusConnecting) {
+        NSLog(@"connot quit, currently connecting");
+        return;
+    }
+    if (_session && _session.sessionConnectionStatus==OTSessionConnectionStatusConnected) {
+                NSLog(@"connot quit, disconnecting....");
+        [_session disconnect];
+        return;
+    }
+    _session = NULL;
+    _subscriber = NULL;
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)showAlert:(NSString*)string {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message from video session"
                                                     message:string
@@ -290,12 +291,29 @@
                                           otherButtonTitles:nil];
     [alert show];
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void) updateChatTable: (NSDictionary*) msg{
+    [chatData addObject: (NSDictionary* )msg ];
+    [chatTable reloadData];
+    if (chatTable.contentSize.height > chatTable.frame.size.height){
+        CGPoint offset = CGPointMake(0, chatTable.contentSize.height - chatTable.frame.size.height);
+        [chatTable setContentOffset:offset animated:YES];
+    }
+}
+- (void) setSelectStreamButton{
+    for (id key in roomUsers) {
+        if ( _subscriber && [_subscriber.stream.connection.connectionId isEqualToString: key] ){
+            [userSelectButton setTitle: [roomUsers objectForKey:key] forState:UIControlStateNormal];
+        }
+    }
+    [usersPickerView reloadInputViews];
+}
+
 
 
 #pragma mark - Chat textfield
@@ -407,8 +425,7 @@
 
 #pragma mark - Other Interactions
 - (IBAction)ExitButton:(id)sender {
-    NSLog(@"exit button");
-    [_session disconnect];
+    [self leaveRoom];
 }
 
 #pragma mark - UIPickerView DataSource
@@ -439,8 +456,7 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     //Let's print in the console what the user had chosen;
-    //NSLog(@"Chosen item: %@", [connections objectAtIndex:row]);
-
+    NSLog(@"Chosen item: %@", [connections objectAtIndex:row]);
 }
 
 #pragma mark - User Buttons

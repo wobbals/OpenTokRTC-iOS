@@ -55,8 +55,8 @@
 		E48A137C17F3AE7000259FBE /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = E48A136E17F3AE7000259FBE /* Icon-120.png */; };
 		E48A137D17F3AE7000259FBE /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = E48A136F17F3AE7000259FBE /* iTunesArtwork.png */; };
 		E48A137E17F3AE7000259FBE /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E48A137017F3AE7000259FBE /* iTunesArtwork@2x.png */; };
-		E48BEA2417F2324E0082ACB1 /* silhouetteman.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E48BEA2317F2324E0082ACB1 /* silhouetteman.jpg */; };
 		E49688AF1820480C007DB53D /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E409160217E233C300346C2F /* Opentok.framework */; };
+		E49688B31820890B007DB53D /* silhouetteman.png in Resources */ = {isa = PBXBuildFile; fileRef = E49688B21820890B007DB53D /* silhouetteman.png */; };
 		E4A4641117DC2A3300AA4FE9 /* AvantGarDemObl in Resources */ = {isa = PBXBuildFile; fileRef = E4A4641017DC2A3300AA4FE9 /* AvantGarDemObl */; };
 		E4EA156217DC31E40069B603 /* Avant Garde Book BT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4EA156117DC31E40069B603 /* Avant Garde Book BT.ttf */; };
 		E4EA156317DC874E0069B603 /* Avant Garde Book BT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4EA156117DC31E40069B603 /* Avant Garde Book BT.ttf */; };
@@ -132,7 +132,7 @@
 		E48A136E17F3AE7000259FBE /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
 		E48A136F17F3AE7000259FBE /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		E48A137017F3AE7000259FBE /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
-		E48BEA2317F2324E0082ACB1 /* silhouetteman.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = silhouetteman.jpg; sourceTree = "<group>"; };
+		E49688B21820890B007DB53D /* silhouetteman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = silhouetteman.png; path = assets/silhouetteman.png; sourceTree = "<group>"; };
 		E4A4641017DC2A3300AA4FE9 /* AvantGarDemObl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AvantGarDemObl; sourceTree = "<group>"; };
 		E4EA156117DC31E40069B603 /* Avant Garde Book BT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avant Garde Book BT.ttf"; sourceTree = "<group>"; };
 		E4EA156417DC9ABF0069B603 /* TBRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TBRed.png; sourceTree = "<group>"; };
@@ -245,8 +245,8 @@
 		E423F48517BC4D48007F17DF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E49688B21820890B007DB53D /* silhouetteman.png */,
 				E48BEA2C17F249B70082ACB1 /* icons */,
-				E48BEA2317F2324E0082ACB1 /* silhouetteman.jpg */,
 				92C3D0FA17E23E2000C0AFE1 /* opentok.bundle */,
 				E4EA156617DC9CAF0069B603 /* TBBlue.png */,
 				E4EA156417DC9ABF0069B603 /* TBRed.png */,
@@ -394,7 +394,6 @@
 				E423F48917BC4D48007F17DF /* InfoPlist.strings in Resources */,
 				E48A137617F3AE7000259FBE /* Icon-60x60.png in Resources */,
 				E48A137D17F3AE7000259FBE /* iTunesArtwork.png in Resources */,
-				E48BEA2417F2324E0082ACB1 /* silhouetteman.jpg in Resources */,
 				E423F49117BC4D48007F17DF /* Default.png in Resources */,
 				E48A137317F3AE7000259FBE /* Icon-40x40.png in Resources */,
 				E48A137717F3AE7000259FBE /* Icon-60x60@2x.png in Resources */,
@@ -409,6 +408,7 @@
 				E48A137817F3AE7000259FBE /* Icon-76x76.png in Resources */,
 				E48A137117F3AE7000259FBE /* Icon-29x29.png in Resources */,
 				E4EA156517DC9ABF0069B603 /* TBRed.png in Resources */,
+				E49688B31820890B007DB53D /* silhouetteman.png in Resources */,
 				E48A137417F3AE7000259FBE /* Icon-40x40@2x.png in Resources */,
 				E4EA156717DC9CAF0069B603 /* TBBlue.png in Resources */,
 				E48A137C17F3AE7000259FBE /* Icon-120.png in Resources */,
