@@ -109,7 +109,6 @@
     
     // create publisher and style publisher
     publisher = [[OTPublisher alloc] initWithDelegate:self];
-    publisher.publishAudio = NO;
     float diameter = 100.0;
     [publisher.view setFrame:CGRectMake( containerWidth-90, containerHeight-60, diameter, diameter)];
     publisher.view.layer.cornerRadius = diameter/2.0;
@@ -221,7 +220,6 @@
     // make sure we don't subscribe to ourselves
     if (![stream.connection.connectionId isEqualToString: _session.connection.connectionId] && !_subscriber){
         _subscriber = [[OTSubscriber alloc] initWithStream:stream delegate:self];
-        _subscriber.subscribeToAudio = NO;
         
         // get name of subscribed stream and set the button text to currently subscribed stream
         NSString* streamName = [roomUsers objectForKey: stream.connection.connectionId];
