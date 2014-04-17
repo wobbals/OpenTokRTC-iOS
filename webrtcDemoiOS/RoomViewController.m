@@ -17,11 +17,11 @@
 #import "TBExamplePublisher.h"
 #import "TBExampleSubscriber.h"
 
-NSString *kApiKey = @"100";
+NSString *kApiKey = @"";
 // Replace with your generated session ID
-NSString *kSessionId = @"2_MX4xMDB-flR1ZSBOb3YgMTkgMTE6MDk6NTggUFNUIDIwMTN-MC4zNzQxNzIxNX4";
+NSString *kSessionId = @"";
 // Replace with your generated token
-NSString *kToken = @"T1==cGFydG5lcl9pZD0xMDAmc2RrX3ZlcnNpb249dGJwaHAtdjAuOTEuMjAxMS0wNy0wNSZzaWc9ZWZlOWVmMTZiODQ4ZmY4MDlkZDcwMzM4NzhhZmVhNTJjYWNkYzRkMTpzZXNzaW9uX2lkPTJfTVg0eE1EQi1mbFIxWlNCT2IzWWdNVGtnTVRFNk1EazZOVGdnVUZOVUlESXdNVE4tTUM0ek56UXhOekl4Tlg0JmNyZWF0ZV90aW1lPTEzOTcwMDkzMDImcm9sZT1tb2RlcmF0b3Imbm9uY2U9MTM5NzAwOTMwMi43OTI1MTg1NTQwNDE0NiZleHBpcmVfdGltZT0xMzk5NjAxMzAy";
+NSString *kToken = @"";
 
 #define APP_IN_FULL_SCREEN @"appInFullScreenMode"
 #define PUBLISHER_BAR_HEIGHT 50.0f
