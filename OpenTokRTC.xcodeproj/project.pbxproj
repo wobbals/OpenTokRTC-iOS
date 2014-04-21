@@ -7,7 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		92C3D0FB17E23E2000C0AFE1 /* opentok.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 92C3D0FA17E23E2000C0AFE1 /* opentok.bundle */; };
+		A56C2F1818FFECF500B1B7E0 /* archiving_off-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = A56C2F0A18FFECF500B1B7E0 /* archiving_off-Small.png */; };
+		A56C2F1918FFECF500B1B7E0 /* archiving_off-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A56C2F0B18FFECF500B1B7E0 /* archiving_off-Small@2x.png */; };
+		A56C2F1A18FFECF500B1B7E0 /* archiving_on-10.png in Resources */ = {isa = PBXBuildFile; fileRef = A56C2F0C18FFECF500B1B7E0 /* archiving_on-10.png */; };
+		A56C2F1B18FFECF500B1B7E0 /* archiving_on-10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A56C2F0D18FFECF500B1B7E0 /* archiving_on-10@2x.png */; };
+		A56C2F1C18FFECF500B1B7E0 /* archiving_pulse-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = A56C2F0E18FFECF500B1B7E0 /* archiving_pulse-Small.png */; };
+		A56C2F1D18FFECF500B1B7E0 /* archiving_pulse-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A56C2F0F18FFECF500B1B7E0 /* archiving_pulse-Small@2x.png */; };
+		A56C2F1E18FFECF500B1B7E0 /* TB Bug-46.png in Resources */ = {isa = PBXBuildFile; fileRef = A56C2F1018FFECF500B1B7E0 /* TB Bug-46.png */; };
+		A56C2F1F18FFECF500B1B7E0 /* TB Bug-46@2.png in Resources */ = {isa = PBXBuildFile; fileRef = A56C2F1118FFECF500B1B7E0 /* TB Bug-46@2.png */; };
+		A56C2F2018FFECF500B1B7E0 /* camera_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A56C2F1218FFECF500B1B7E0 /* camera_1.png */; };
+		A56C2F2118FFECF500B1B7E0 /* camera_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A56C2F1318FFECF500B1B7E0 /* camera_2.png */; };
+		A56C2F2218FFECF500B1B7E0 /* mic_off.png in Resources */ = {isa = PBXBuildFile; fileRef = A56C2F1418FFECF500B1B7E0 /* mic_off.png */; };
+		A56C2F2318FFECF500B1B7E0 /* mic_on.png in Resources */ = {isa = PBXBuildFile; fileRef = A56C2F1518FFECF500B1B7E0 /* mic_on.png */; };
+		A56C2F2418FFECF500B1B7E0 /* Speaker_off.png in Resources */ = {isa = PBXBuildFile; fileRef = A56C2F1618FFECF500B1B7E0 /* Speaker_off.png */; };
+		A56C2F2518FFECF500B1B7E0 /* Speaker_on.png in Resources */ = {isa = PBXBuildFile; fileRef = A56C2F1718FFECF500B1B7E0 /* Speaker_on.png */; };
+		A56C2F3018FFEDA900B1B7E0 /* TBExamplePublisher.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C2F2718FFEDA900B1B7E0 /* TBExamplePublisher.m */; };
+		A56C2F3118FFEDA900B1B7E0 /* TBExampleSubscriber.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C2F2918FFEDA900B1B7E0 /* TBExampleSubscriber.m */; };
+		A56C2F3218FFEDA900B1B7E0 /* TBExampleVideoCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C2F2B18FFEDA900B1B7E0 /* TBExampleVideoCapture.m */; };
+		A56C2F3318FFEDA900B1B7E0 /* TBExampleVideoRender.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C2F2D18FFEDA900B1B7E0 /* TBExampleVideoRender.m */; };
+		A56C2F3418FFEDA900B1B7E0 /* ShaderUtilities.c in Sources */ = {isa = PBXBuildFile; fileRef = A56C2F2E18FFEDA900B1B7E0 /* ShaderUtilities.c */; };
+		A56C2F3618FFEE0F00B1B7E0 /* OpenTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A56C2F3518FFEE0F00B1B7E0 /* OpenTok.framework */; };
+		A56C2F3818FFEF4700B1B7E0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A56C2F3718FFEF4700B1B7E0 /* libsqlite3.dylib */; };
+		A56C2F3A18FFEF5100B1B7E0 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A56C2F3918FFEF5100B1B7E0 /* libxml2.dylib */; };
 		E423F47F17BC4D48007F17DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E423F47E17BC4D48007F17DF /* UIKit.framework */; };
 		E423F48117BC4D48007F17DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E423F48017BC4D48007F17DF /* Foundation.framework */; };
 		E423F48317BC4D48007F17DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E423F48217BC4D48007F17DF /* CoreGraphics.framework */; };
@@ -40,7 +61,6 @@
 		E423F4D417BC4DE2007F17DF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E423F4C617BC4DE2007F17DF /* AVFoundation.framework */; };
 		E423F4DC17BC4EDA007F17DF /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E423F4DB17BC4EDA007F17DF /* libicucore.dylib */; };
 		E423F4FC17BC5318007F17DF /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E423F4FB17BC5318007F17DF /* RoomViewController.m */; };
-		E423F53817C3C55E007F17DF /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E423F53717C3C55E007F17DF /* ChatCell.m */; };
 		E48A137117F3AE7000259FBE /* Icon-29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = E48A136317F3AE7000259FBE /* Icon-29x29.png */; };
 		E48A137217F3AE7000259FBE /* Icon-29x29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E48A136417F3AE7000259FBE /* Icon-29x29@2x.png */; };
 		E48A137317F3AE7000259FBE /* Icon-40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = E48A136517F3AE7000259FBE /* Icon-40x40.png */; };
@@ -55,8 +75,6 @@
 		E48A137C17F3AE7000259FBE /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = E48A136E17F3AE7000259FBE /* Icon-120.png */; };
 		E48A137D17F3AE7000259FBE /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = E48A136F17F3AE7000259FBE /* iTunesArtwork.png */; };
 		E48A137E17F3AE7000259FBE /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E48A137017F3AE7000259FBE /* iTunesArtwork@2x.png */; };
-		E49688AF1820480C007DB53D /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E409160217E233C300346C2F /* Opentok.framework */; };
-		E49688B31820890B007DB53D /* silhouetteman.png in Resources */ = {isa = PBXBuildFile; fileRef = E49688B21820890B007DB53D /* silhouetteman.png */; };
 		E4A4641117DC2A3300AA4FE9 /* AvantGarDemObl in Resources */ = {isa = PBXBuildFile; fileRef = E4A4641017DC2A3300AA4FE9 /* AvantGarDemObl */; };
 		E4EA156217DC31E40069B603 /* Avant Garde Book BT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4EA156117DC31E40069B603 /* Avant Garde Book BT.ttf */; };
 		E4EA156317DC874E0069B603 /* Avant Garde Book BT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4EA156117DC31E40069B603 /* Avant Garde Book BT.ttf */; };
@@ -75,7 +93,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		92C3D0FA17E23E2000C0AFE1 /* opentok.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = opentok.bundle; path = Opentok.framework/Versions/A/Resources/opentok.bundle; sourceTree = SOURCE_ROOT; };
+		A56C2F0A18FFECF500B1B7E0 /* archiving_off-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "archiving_off-Small.png"; path = "icons/archiving_off-Small.png"; sourceTree = "<group>"; };
+		A56C2F0B18FFECF500B1B7E0 /* archiving_off-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "archiving_off-Small@2x.png"; path = "icons/archiving_off-Small@2x.png"; sourceTree = "<group>"; };
+		A56C2F0C18FFECF500B1B7E0 /* archiving_on-10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "archiving_on-10.png"; path = "icons/archiving_on-10.png"; sourceTree = "<group>"; };
+		A56C2F0D18FFECF500B1B7E0 /* archiving_on-10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "archiving_on-10@2x.png"; path = "icons/archiving_on-10@2x.png"; sourceTree = "<group>"; };
+		A56C2F0E18FFECF500B1B7E0 /* archiving_pulse-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "archiving_pulse-Small.png"; path = "icons/archiving_pulse-Small.png"; sourceTree = "<group>"; };
+		A56C2F0F18FFECF500B1B7E0 /* archiving_pulse-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "archiving_pulse-Small@2x.png"; path = "icons/archiving_pulse-Small@2x.png"; sourceTree = "<group>"; };
+		A56C2F1018FFECF500B1B7E0 /* TB Bug-46.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TB Bug-46.png"; path = "icons/TB Bug-46.png"; sourceTree = "<group>"; };
+		A56C2F1118FFECF500B1B7E0 /* TB Bug-46@2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TB Bug-46@2.png"; path = "icons/TB Bug-46@2.png"; sourceTree = "<group>"; };
+		A56C2F1218FFECF500B1B7E0 /* camera_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera_1.png; path = icons/camera_1.png; sourceTree = "<group>"; };
+		A56C2F1318FFECF500B1B7E0 /* camera_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera_2.png; path = icons/camera_2.png; sourceTree = "<group>"; };
+		A56C2F1418FFECF500B1B7E0 /* mic_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mic_off.png; path = icons/mic_off.png; sourceTree = "<group>"; };
+		A56C2F1518FFECF500B1B7E0 /* mic_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mic_on.png; path = icons/mic_on.png; sourceTree = "<group>"; };
+		A56C2F1618FFECF500B1B7E0 /* Speaker_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Speaker_off.png; path = icons/Speaker_off.png; sourceTree = "<group>"; };
+		A56C2F1718FFECF500B1B7E0 /* Speaker_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Speaker_on.png; path = icons/Speaker_on.png; sourceTree = "<group>"; };
+		A56C2F2618FFEDA900B1B7E0 /* TBExamplePublisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBExamplePublisher.h; sourceTree = "<group>"; };
+		A56C2F2718FFEDA900B1B7E0 /* TBExamplePublisher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBExamplePublisher.m; sourceTree = "<group>"; };
+		A56C2F2818FFEDA900B1B7E0 /* TBExampleSubscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBExampleSubscriber.h; sourceTree = "<group>"; };
+		A56C2F2918FFEDA900B1B7E0 /* TBExampleSubscriber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBExampleSubscriber.m; sourceTree = "<group>"; };
+		A56C2F2A18FFEDA900B1B7E0 /* TBExampleVideoCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBExampleVideoCapture.h; sourceTree = "<group>"; };
+		A56C2F2B18FFEDA900B1B7E0 /* TBExampleVideoCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBExampleVideoCapture.m; sourceTree = "<group>"; };
+		A56C2F2C18FFEDA900B1B7E0 /* TBExampleVideoRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBExampleVideoRender.h; sourceTree = "<group>"; };
+		A56C2F2D18FFEDA900B1B7E0 /* TBExampleVideoRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBExampleVideoRender.m; sourceTree = "<group>"; };
+		A56C2F2E18FFEDA900B1B7E0 /* ShaderUtilities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ShaderUtilities.c; sourceTree = "<group>"; };
+		A56C2F2F18FFEDA900B1B7E0 /* ShaderUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderUtilities.h; sourceTree = "<group>"; };
+		A56C2F3518FFEE0F00B1B7E0 /* OpenTok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenTok.framework; sourceTree = "<group>"; };
+		A56C2F3718FFEF4700B1B7E0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		A56C2F3918FFEF5100B1B7E0 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		E409160217E233C300346C2F /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Opentok.framework; sourceTree = "<group>"; };
 		E423F47B17BC4D48007F17DF /* OpenTokRTC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenTokRTC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E423F47E17BC4D48007F17DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -116,8 +160,6 @@
 		E423F4DB17BC4EDA007F17DF /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		E423F4FA17BC5318007F17DF /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
 		E423F4FB17BC5318007F17DF /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
-		E423F53617C3C55E007F17DF /* ChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
-		E423F53717C3C55E007F17DF /* ChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
 		E48A136317F3AE7000259FBE /* Icon-29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29x29.png"; sourceTree = "<group>"; };
 		E48A136417F3AE7000259FBE /* Icon-29x29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29x29@2x.png"; sourceTree = "<group>"; };
 		E48A136517F3AE7000259FBE /* Icon-40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40x40.png"; sourceTree = "<group>"; };
@@ -132,7 +174,6 @@
 		E48A136E17F3AE7000259FBE /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
 		E48A136F17F3AE7000259FBE /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		E48A137017F3AE7000259FBE /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
-		E49688B21820890B007DB53D /* silhouetteman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = silhouetteman.png; path = assets/silhouetteman.png; sourceTree = "<group>"; };
 		E4A4641017DC2A3300AA4FE9 /* AvantGarDemObl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AvantGarDemObl; sourceTree = "<group>"; };
 		E4EA156117DC31E40069B603 /* Avant Garde Book BT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avant Garde Book BT.ttf"; sourceTree = "<group>"; };
 		E4EA156417DC9ABF0069B603 /* TBRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TBRed.png; sourceTree = "<group>"; };
@@ -144,7 +185,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E49688AF1820480C007DB53D /* Opentok.framework in Frameworks */,
+				A56C2F3A18FFEF5100B1B7E0 /* libxml2.dylib in Frameworks */,
+				A56C2F3818FFEF4700B1B7E0 /* libsqlite3.dylib in Frameworks */,
+				A56C2F3618FFEE0F00B1B7E0 /* OpenTok.framework in Frameworks */,
 				E423F4DC17BC4EDA007F17DF /* libicucore.dylib in Frameworks */,
 				E423F47F17BC4D48007F17DF /* UIKit.framework in Frameworks */,
 				E423F48117BC4D48007F17DF /* Foundation.framework in Frameworks */,
@@ -201,6 +244,9 @@
 		E423F47D17BC4D48007F17DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A56C2F3918FFEF5100B1B7E0 /* libxml2.dylib */,
+				A56C2F3718FFEF4700B1B7E0 /* libsqlite3.dylib */,
+				A56C2F3518FFEE0F00B1B7E0 /* OpenTok.framework */,
 				E409160217E233C300346C2F /* Opentok.framework */,
 				E423F4B917BC4DE2007F17DF /* CoreTelephony.framework */,
 				E423F4BA17BC4DE2007F17DF /* MobileCoreServices.framework */,
@@ -231,12 +277,20 @@
 				E423F48D17BC4D48007F17DF /* AppDelegate.h */,
 				E423F48E17BC4D48007F17DF /* AppDelegate.m */,
 				E423F49617BC4D48007F17DF /* MainStoryboard.storyboard */,
-				E423F53617C3C55E007F17DF /* ChatCell.h */,
-				E423F53717C3C55E007F17DF /* ChatCell.m */,
 				E423F49917BC4D48007F17DF /* ViewController.h */,
 				E423F49A17BC4D48007F17DF /* ViewController.m */,
 				E423F4FA17BC5318007F17DF /* RoomViewController.h */,
 				E423F4FB17BC5318007F17DF /* RoomViewController.m */,
+				A56C2F2618FFEDA900B1B7E0 /* TBExamplePublisher.h */,
+				A56C2F2718FFEDA900B1B7E0 /* TBExamplePublisher.m */,
+				A56C2F2818FFEDA900B1B7E0 /* TBExampleSubscriber.h */,
+				A56C2F2918FFEDA900B1B7E0 /* TBExampleSubscriber.m */,
+				A56C2F2A18FFEDA900B1B7E0 /* TBExampleVideoCapture.h */,
+				A56C2F2B18FFEDA900B1B7E0 /* TBExampleVideoCapture.m */,
+				A56C2F2C18FFEDA900B1B7E0 /* TBExampleVideoRender.h */,
+				A56C2F2D18FFEDA900B1B7E0 /* TBExampleVideoRender.m */,
+				A56C2F2E18FFEDA900B1B7E0 /* ShaderUtilities.c */,
+				A56C2F2F18FFEDA900B1B7E0 /* ShaderUtilities.h */,
 				E423F48517BC4D48007F17DF /* Supporting Files */,
 			);
 			path = webrtcDemoiOS;
@@ -245,9 +299,21 @@
 		E423F48517BC4D48007F17DF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E49688B21820890B007DB53D /* silhouetteman.png */,
+				A56C2F0A18FFECF500B1B7E0 /* archiving_off-Small.png */,
+				A56C2F0B18FFECF500B1B7E0 /* archiving_off-Small@2x.png */,
+				A56C2F0C18FFECF500B1B7E0 /* archiving_on-10.png */,
+				A56C2F0D18FFECF500B1B7E0 /* archiving_on-10@2x.png */,
+				A56C2F0E18FFECF500B1B7E0 /* archiving_pulse-Small.png */,
+				A56C2F0F18FFECF500B1B7E0 /* archiving_pulse-Small@2x.png */,
+				A56C2F1018FFECF500B1B7E0 /* TB Bug-46.png */,
+				A56C2F1118FFECF500B1B7E0 /* TB Bug-46@2.png */,
+				A56C2F1218FFECF500B1B7E0 /* camera_1.png */,
+				A56C2F1318FFECF500B1B7E0 /* camera_2.png */,
+				A56C2F1418FFECF500B1B7E0 /* mic_off.png */,
+				A56C2F1518FFECF500B1B7E0 /* mic_on.png */,
+				A56C2F1618FFECF500B1B7E0 /* Speaker_off.png */,
+				A56C2F1718FFECF500B1B7E0 /* Speaker_on.png */,
 				E48BEA2C17F249B70082ACB1 /* icons */,
-				92C3D0FA17E23E2000C0AFE1 /* opentok.bundle */,
 				E4EA156617DC9CAF0069B603 /* TBBlue.png */,
 				E4EA156417DC9ABF0069B603 /* TBRed.png */,
 				E4A4640D17DC28DC00AA4FE9 /* fonts */,
@@ -360,7 +426,7 @@
 				ORGANIZATIONNAME = "Song Zheng";
 				TargetAttributes = {
 					E423F47A17BC4D48007F17DF = {
-						DevelopmentTeam = Q8LHUPHAD8;
+						DevelopmentTeam = WNJ2NMESL3;
 					};
 				};
 			};
@@ -389,11 +455,15 @@
 			files = (
 				E48A137517F3AE7000259FBE /* Icon-57.png in Resources */,
 				E48A137B17F3AE7000259FBE /* Icon-114.png in Resources */,
-				92C3D0FB17E23E2000C0AFE1 /* opentok.bundle in Resources */,
+				A56C2F1818FFECF500B1B7E0 /* archiving_off-Small.png in Resources */,
+				A56C2F1B18FFECF500B1B7E0 /* archiving_on-10@2x.png in Resources */,
 				E4EA156317DC874E0069B603 /* Avant Garde Book BT.ttf in Resources */,
 				E423F48917BC4D48007F17DF /* InfoPlist.strings in Resources */,
 				E48A137617F3AE7000259FBE /* Icon-60x60.png in Resources */,
+				A56C2F2518FFECF500B1B7E0 /* Speaker_on.png in Resources */,
 				E48A137D17F3AE7000259FBE /* iTunesArtwork.png in Resources */,
+				A56C2F2218FFECF500B1B7E0 /* mic_off.png in Resources */,
+				A56C2F1918FFECF500B1B7E0 /* archiving_off-Small@2x.png in Resources */,
 				E423F49117BC4D48007F17DF /* Default.png in Resources */,
 				E48A137317F3AE7000259FBE /* Icon-40x40.png in Resources */,
 				E48A137717F3AE7000259FBE /* Icon-60x60@2x.png in Resources */,
@@ -401,17 +471,25 @@
 				E423F49317BC4D48007F17DF /* Default@2x.png in Resources */,
 				E48A137217F3AE7000259FBE /* Icon-29x29@2x.png in Resources */,
 				E423F49517BC4D48007F17DF /* Default-568h@2x.png in Resources */,
+				A56C2F2118FFECF500B1B7E0 /* camera_2.png in Resources */,
 				E423F49817BC4D48007F17DF /* MainStoryboard.storyboard in Resources */,
 				E4A4641117DC2A3300AA4FE9 /* AvantGarDemObl in Resources */,
+				A56C2F2418FFECF500B1B7E0 /* Speaker_off.png in Resources */,
+				A56C2F2018FFECF500B1B7E0 /* camera_1.png in Resources */,
 				E48A137A17F3AE7000259FBE /* Icon-80.png in Resources */,
+				A56C2F1E18FFECF500B1B7E0 /* TB Bug-46.png in Resources */,
+				A56C2F1C18FFECF500B1B7E0 /* archiving_pulse-Small.png in Resources */,
+				A56C2F1A18FFECF500B1B7E0 /* archiving_on-10.png in Resources */,
+				A56C2F1D18FFECF500B1B7E0 /* archiving_pulse-Small@2x.png in Resources */,
 				E48A137917F3AE7000259FBE /* Icon-76x76@2x.png in Resources */,
 				E48A137817F3AE7000259FBE /* Icon-76x76.png in Resources */,
 				E48A137117F3AE7000259FBE /* Icon-29x29.png in Resources */,
+				A56C2F2318FFECF500B1B7E0 /* mic_on.png in Resources */,
 				E4EA156517DC9ABF0069B603 /* TBRed.png in Resources */,
-				E49688B31820890B007DB53D /* silhouetteman.png in Resources */,
 				E48A137417F3AE7000259FBE /* Icon-40x40@2x.png in Resources */,
 				E4EA156717DC9CAF0069B603 /* TBBlue.png in Resources */,
 				E48A137C17F3AE7000259FBE /* Icon-120.png in Resources */,
+				A56C2F1F18FFECF500B1B7E0 /* TB Bug-46@2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,10 +526,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E423F48B17BC4D48007F17DF /* main.m in Sources */,
+				A56C2F3018FFEDA900B1B7E0 /* TBExamplePublisher.m in Sources */,
 				E423F48F17BC4D48007F17DF /* AppDelegate.m in Sources */,
 				E423F49B17BC4D48007F17DF /* ViewController.m in Sources */,
 				E423F4FC17BC5318007F17DF /* RoomViewController.m in Sources */,
-				E423F53817C3C55E007F17DF /* ChatCell.m in Sources */,
+				A56C2F3318FFEDA900B1B7E0 /* TBExampleVideoRender.m in Sources */,
+				A56C2F3118FFEDA900B1B7E0 /* TBExampleSubscriber.m in Sources */,
+				A56C2F3418FFEDA900B1B7E0 /* ShaderUtilities.c in Sources */,
+				A56C2F3218FFEDA900B1B7E0 /* TBExampleVideoCapture.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,17 +646,27 @@
 		E423F4B417BC4D48007F17DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Song ZHENG (Q8LHUPHAD8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Song ZHENG (Q8LHUPHAD8)";
+				ARCHS = armv7;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
 					/Users/song/CloudStorage/Dropbox/Tokbox/Code/demos/webrtcDemoiOS,
+					"/Users/sridhar/src/OpenTokRTC-iOS",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "webrtcDemoiOS/OpenTokRTC-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(SRCROOT)/webrtcDemoiOS\"",
+				);
 				INFOPLIST_FILE = "webrtcDemoiOS/OpenTokRTC-Info.plist";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = OpenTokRTC;
-				PROVISIONING_PROFILE = "1C1F66C9-C6F8-4514-8405-1A262C8ED405";
+				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -582,17 +674,27 @@
 		E423F4B517BC4D48007F17DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Song ZHENG (Q8LHUPHAD8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Song ZHENG (Q8LHUPHAD8)";
+				ARCHS = armv7;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
 					/Users/song/CloudStorage/Dropbox/Tokbox/Code/demos/webrtcDemoiOS,
+					"/Users/sridhar/src/OpenTokRTC-iOS",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "webrtcDemoiOS/OpenTokRTC-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(SRCROOT)/webrtcDemoiOS\"",
+				);
 				INFOPLIST_FILE = "webrtcDemoiOS/OpenTokRTC-Info.plist";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = OpenTokRTC;
-				PROVISIONING_PROFILE = "1C1F66C9-C6F8-4514-8405-1A262C8ED405";
+				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
