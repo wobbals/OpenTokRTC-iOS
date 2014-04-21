@@ -26,7 +26,6 @@
 		A56C2F3218FFEDA900B1B7E0 /* TBExampleVideoCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C2F2B18FFEDA900B1B7E0 /* TBExampleVideoCapture.m */; };
 		A56C2F3318FFEDA900B1B7E0 /* TBExampleVideoRender.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C2F2D18FFEDA900B1B7E0 /* TBExampleVideoRender.m */; };
 		A56C2F3418FFEDA900B1B7E0 /* ShaderUtilities.c in Sources */ = {isa = PBXBuildFile; fileRef = A56C2F2E18FFEDA900B1B7E0 /* ShaderUtilities.c */; };
-		A56C2F3618FFEE0F00B1B7E0 /* OpenTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A56C2F3518FFEE0F00B1B7E0 /* OpenTok.framework */; };
 		A56C2F3818FFEF4700B1B7E0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A56C2F3718FFEF4700B1B7E0 /* libsqlite3.dylib */; };
 		A56C2F3A18FFEF5100B1B7E0 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A56C2F3918FFEF5100B1B7E0 /* libxml2.dylib */; };
 		E423F47F17BC4D48007F17DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E423F47E17BC4D48007F17DF /* UIKit.framework */; };
@@ -61,6 +60,7 @@
 		E423F4D417BC4DE2007F17DF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E423F4C617BC4DE2007F17DF /* AVFoundation.framework */; };
 		E423F4DC17BC4EDA007F17DF /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E423F4DB17BC4EDA007F17DF /* libicucore.dylib */; };
 		E423F4FC17BC5318007F17DF /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E423F4FB17BC5318007F17DF /* RoomViewController.m */; };
+		E48884641905E01C00AB084A /* OpenTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48884631905E01C00AB084A /* OpenTok.framework */; };
 		E48A137117F3AE7000259FBE /* Icon-29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = E48A136317F3AE7000259FBE /* Icon-29x29.png */; };
 		E48A137217F3AE7000259FBE /* Icon-29x29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E48A136417F3AE7000259FBE /* Icon-29x29@2x.png */; };
 		E48A137317F3AE7000259FBE /* Icon-40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = E48A136517F3AE7000259FBE /* Icon-40x40.png */; };
@@ -117,10 +117,8 @@
 		A56C2F2D18FFEDA900B1B7E0 /* TBExampleVideoRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBExampleVideoRender.m; sourceTree = "<group>"; };
 		A56C2F2E18FFEDA900B1B7E0 /* ShaderUtilities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ShaderUtilities.c; sourceTree = "<group>"; };
 		A56C2F2F18FFEDA900B1B7E0 /* ShaderUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderUtilities.h; sourceTree = "<group>"; };
-		A56C2F3518FFEE0F00B1B7E0 /* OpenTok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenTok.framework; sourceTree = "<group>"; };
 		A56C2F3718FFEF4700B1B7E0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		A56C2F3918FFEF5100B1B7E0 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		E409160217E233C300346C2F /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Opentok.framework; sourceTree = "<group>"; };
 		E423F47B17BC4D48007F17DF /* OpenTokRTC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenTokRTC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E423F47E17BC4D48007F17DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E423F48017BC4D48007F17DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -160,6 +158,7 @@
 		E423F4DB17BC4EDA007F17DF /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		E423F4FA17BC5318007F17DF /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
 		E423F4FB17BC5318007F17DF /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
+		E48884631905E01C00AB084A /* OpenTok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenTok.framework; sourceTree = "<group>"; };
 		E48A136317F3AE7000259FBE /* Icon-29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29x29.png"; sourceTree = "<group>"; };
 		E48A136417F3AE7000259FBE /* Icon-29x29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29x29@2x.png"; sourceTree = "<group>"; };
 		E48A136517F3AE7000259FBE /* Icon-40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40x40.png"; sourceTree = "<group>"; };
@@ -186,8 +185,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A56C2F3A18FFEF5100B1B7E0 /* libxml2.dylib in Frameworks */,
+				E48884641905E01C00AB084A /* OpenTok.framework in Frameworks */,
 				A56C2F3818FFEF4700B1B7E0 /* libsqlite3.dylib in Frameworks */,
-				A56C2F3618FFEE0F00B1B7E0 /* OpenTok.framework in Frameworks */,
 				E423F4DC17BC4EDA007F17DF /* libicucore.dylib in Frameworks */,
 				E423F47F17BC4D48007F17DF /* UIKit.framework in Frameworks */,
 				E423F48117BC4D48007F17DF /* Foundation.framework in Frameworks */,
@@ -246,8 +245,6 @@
 			children = (
 				A56C2F3918FFEF5100B1B7E0 /* libxml2.dylib */,
 				A56C2F3718FFEF4700B1B7E0 /* libsqlite3.dylib */,
-				A56C2F3518FFEE0F00B1B7E0 /* OpenTok.framework */,
-				E409160217E233C300346C2F /* Opentok.framework */,
 				E423F4B917BC4DE2007F17DF /* CoreTelephony.framework */,
 				E423F4BA17BC4DE2007F17DF /* MobileCoreServices.framework */,
 				E423F4BB17BC4DE2007F17DF /* CFNetwork.framework */,
@@ -261,6 +258,7 @@
 				E423F4C317BC4DE2007F17DF /* libz.dylib */,
 				E423F4DB17BC4EDA007F17DF /* libicucore.dylib */,
 				E423F4C417BC4DE2007F17DF /* libstdc++.dylib */,
+				E48884631905E01C00AB084A /* OpenTok.framework */,
 				E423F4C517BC4DE2007F17DF /* QuartzCore.framework */,
 				E423F4C617BC4DE2007F17DF /* AVFoundation.framework */,
 				E423F47E17BC4D48007F17DF /* UIKit.framework */,
@@ -426,7 +424,7 @@
 				ORGANIZATIONNAME = "Song Zheng";
 				TargetAttributes = {
 					E423F47A17BC4D48007F17DF = {
-						DevelopmentTeam = WNJ2NMESL3;
+						DevelopmentTeam = Q8LHUPHAD8;
 					};
 				};
 			};
@@ -654,6 +652,7 @@
 					"$(SRCROOT)",
 					/Users/song/CloudStorage/Dropbox/Tokbox/Code/demos/webrtcDemoiOS,
 					"/Users/sridhar/src/OpenTokRTC-iOS",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "webrtcDemoiOS/OpenTokRTC-Prefix.pch";
@@ -682,6 +681,7 @@
 					"$(SRCROOT)",
 					/Users/song/CloudStorage/Dropbox/Tokbox/Code/demos/webrtcDemoiOS,
 					"/Users/sridhar/src/OpenTokRTC-iOS",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "webrtcDemoiOS/OpenTokRTC-Prefix.pch";
