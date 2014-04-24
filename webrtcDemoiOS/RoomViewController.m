@@ -123,14 +123,26 @@
     
     // Connect to OpenTok session
     NSLog(@"room info: %@", roomInfo);
-    _session = [[OTSession alloc] initWithSessionId: [roomInfo objectForKey:@"sid"] delegate:self];
-    [_session receiveSignalType:@"initialize" withHandler:^(NSString *type, id data, OTConnection *fromConnection) {
+    
+    // Add session event listeners
+    OTError *connectError = nil;
+    _session = [[OTSession alloc] initWithApiKey:[roomInfo objectForKey:@"apiKey"] sessionId:[roomInfo objectForKey:@"sid"] delegate:self];
+    [_session connectWithToken:[roomInfo objectForKey:@"token"] error:&connectError];
+    // TODO: handle error
+}
+
+- (void) session:(OTSession*)session receivedSignalType:(NSString*)type fromConnection:(OTConnection*)connection
+      withString:(NSString*)data
+{
+    id signalData = [NSJSONSerialization JSONObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+    
+    if ([type isEqualToString:@"initialize"]) {
         if (initialized) {
             return;
         }
-        NSDictionary* roomData = (NSDictionary* ) data; // filters ignored
+        NSDictionary* roomData = (NSDictionary *)signalData; // filters ignored
         // set room users
-        NSDictionary* roomDataUsers = (NSDictionary* ) [roomData valueForKey:@"users"];
+        NSDictionary* roomDataUsers = (NSDictionary *)[roomData valueForKey:@"users"];
         for (id key in roomDataUsers) {
             [roomUsers setValue:[roomDataUsers objectForKey:key] forKey:key];
         }
@@ -141,23 +153,18 @@
             [self updateChatTable: (NSDictionary*) key];
         }
         initialized = YES;
-    }];
-    [_session receiveSignalType:@"chat" withHandler:^(NSString *type, id data, OTConnection *fromConnection) {
-        [self updateChatTable: (NSDictionary*) data];
-    }];
-    [_session receiveSignalType:@"name" withHandler:^(NSString *type, id data, OTConnection *fromConnection) {
-        NSArray* nameData = (NSArray* ) data;
+    } else if ([type isEqualToString:@"chat"]) {
+        [self updateChatTable: (NSDictionary*)signalData];
+    } else if ([type isEqualToString:@"name"]) {
+        NSArray* nameData = (NSArray* )signalData;
         [roomUsers setObject:[nameData objectAtIndex:1] forKey:[nameData objectAtIndex:0]];
         [self setSelectStreamButton];
-    }];
-    
-    // Add session event listeners
-    [_session connectWithApiKey: [roomInfo objectForKey:@"apiKey"] token:[roomInfo objectForKey:@"token"]];
+    }
 }
 
 
 #pragma mark - Gestures
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     return YES;
 }
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
@@ -190,7 +197,12 @@
     }
     [self updateChatTable:@{@"name":userName ,@"text": [[NSString alloc] initWithFormat:@"/serv %@ has joined the room", [roomUsers objectForKey:connection.connectionId] ]}];
     if ([roomUsers count] <= 2) { // me and someone else
-        [_session signalWithType:@"initialize" data:@{@"chat":chatData ,@"filter": @{}, @"users": roomUsers} connections: @[connection] completionHandler:^(NSError* error){}];
+        NSDictionary *dataDictionary = @{@"chat":chatData, @"filter": @{}, @"users": roomUsers};
+        OTError *signalError = nil;
+        NSError *serializationError = nil;
+        NSData *data = [NSJSONSerialization dataWithJSONObject:dataDictionary options:0 error:&serializationError];
+        [_session signalWithType:@"initialize" string:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] connection:connection error:&signalError];
+        // TODO: handle errors
     }
     NSLog(@"addConnection: %@", roomUsers);
 }
@@ -206,20 +218,24 @@
     if (roomUsers) {
         [roomUsers setObject:userName forKey:_session.connection.connectionId];
     }
-    [_session publish:publisher];
+    OTError *publishError = nil;
+    [_session publish:publisher error:&publishError];
+    // TODO: handle error
 }
 
 - (void)sessionDidDisconnect:(OTSession*)session
 {
     [self leaveRoom];
+    _session = nil;
 }
 
-
-- (void)session:(OTSession*)mySession didReceiveStream:(OTStream*)stream
+- (void) session:(OTSession *)session streamCreated:(OTStream *)stream
 {
     // make sure we don't subscribe to ourselves
     if (![stream.connection.connectionId isEqualToString: _session.connection.connectionId] && !_subscriber){
         _subscriber = [[OTSubscriber alloc] initWithStream:stream delegate:self];
+        OTError *subscribeError = nil;
+        [_session subscribe:_subscriber error:&subscribeError];
         
         // get name of subscribed stream and set the button text to currently subscribed stream
         NSString* streamName = [roomUsers objectForKey: stream.connection.connectionId];
@@ -240,13 +256,15 @@
     [myPickerView reloadAllComponents];
 }
 
-- (void)session:(OTSession*)session didDropStream:(OTStream*)stream{
+- (void)session:(OTSession *)session streamDestroyed:(OTStream *)stream
+{
     NSLog(@"session didDropStream (%@)", stream.streamId);
     
     [allStreams removeObjectForKey:stream.connection.connectionId];
     [connections removeObject:stream.connection.connectionId];
     [myPickerView reloadAllComponents];
 }
+
 
 - (void)session:(OTSession*)session didFailWithError:(OTError*)error {
     NSLog(@"sessionDidFail");
@@ -274,7 +292,9 @@
     }
     if (_session && _session.sessionConnectionStatus==OTSessionConnectionStatusConnected) {
                 NSLog(@"connot quit, disconnecting....");
-        [_session disconnect];
+        OTError *disconnectError = nil;
+        [_session disconnect:&disconnectError];
+        // TODO: handle error
         return;
     }
     _session = NULL;
@@ -325,7 +345,12 @@
 {
     if (chatInput.text.length>0 && userName) {
         // Generate a reference to a new location with childByAutoId, add chat
-        [_session signalWithType:@"chat" data:@{@"name":userName ,@"text": textField.text} completionHandler:^(NSError* error){}];
+        OTError *signalError = nil;
+        NSDictionary *dataDictionary = @{@"name":userName, @"text": textField.text};
+        NSError *serializationError = nil;
+        NSData *data = [NSJSONSerialization dataWithJSONObject:dataDictionary options:0 error:&serializationError];
+        [_session signalWithType:@"chat" string:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] connection:nil error:&signalError];
+        // TODO: handle errors
         chatInput.text = @"";
     }
     return NO;
@@ -480,7 +505,8 @@
     OTStream* stream = [allStreams objectForKey: [connections objectAtIndex:row]];
     
     // remove old subscriber and create new one
-    [_subscriber close];
+    OTError *unsubscribeError = nil;
+    [_session unsubscribe:_subscriber error:&unsubscribeError];
     _subscriber = [[OTSubscriber alloc] initWithStream:stream delegate:self];
     CGFloat containerWidth = CGRectGetWidth( videoContainerView.bounds );
     CGFloat containerHeight = CGRectGetHeight( videoContainerView.bounds );

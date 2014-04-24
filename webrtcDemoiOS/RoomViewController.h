@@ -11,7 +11,7 @@
 #import "ChatCell.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface RoomViewController : UIViewController <OTSessionDelegate, OTSubscriberDelegate, OTPublisherDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+@interface RoomViewController : UIViewController <OTSessionDelegate, OTSubscriberKitDelegate, OTPublisherDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIButton *userSelectButton;
 @property (nonatomic, retain) NSString* rid;
