@@ -38,7 +38,15 @@
 		A59DCD0E1918E8A400855A23 /* Subscriber-Speaker-Mute-35@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A59DCCF61918E8A400855A23 /* Subscriber-Speaker-Mute-35@2x.png */; };
 		A59DCD0F1918E8A400855A23 /* TB Bug-30.png in Resources */ = {isa = PBXBuildFile; fileRef = A59DCCF71918E8A400855A23 /* TB Bug-30.png */; };
 		A59DCD101918E8A400855A23 /* TB Bug-30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A59DCCF81918E8A400855A23 /* TB Bug-30@2x.png */; };
-		A5C3DA261907DE7F0064C1D5 /* libotkit-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C3DA251907DE7F0064C1D5 /* libotkit-ios.a */; };
+		A59DCD1F1919243600855A23 /* OpenTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59DCD1E1919243600855A23 /* OpenTok.framework */; };
+		A5A9DBD0191A45820023BC6A /* icon_arrowLeft_enabled-28.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A9DBC8191A45820023BC6A /* icon_arrowLeft_enabled-28.png */; };
+		A5A9DBD1191A45820023BC6A /* icon_arrowLeft_enabled-28@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A9DBC9191A45820023BC6A /* icon_arrowLeft_enabled-28@2x.png */; };
+		A5A9DBD2191A45820023BC6A /* icon_arrowRight_enabled-28.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A9DBCA191A45820023BC6A /* icon_arrowRight_enabled-28.png */; };
+		A5A9DBD3191A45820023BC6A /* icon_arrowRight_enabled-28@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A9DBCB191A45820023BC6A /* icon_arrowRight_enabled-28@2x.png */; };
+		A5A9DBD4191A45820023BC6A /* icon_arrowLeft_disabled-28.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A9DBCC191A45820023BC6A /* icon_arrowLeft_disabled-28.png */; };
+		A5A9DBD5191A45820023BC6A /* icon_arrowLeft_disabled-28@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A9DBCD191A45820023BC6A /* icon_arrowLeft_disabled-28@2x.png */; };
+		A5A9DBD6191A45820023BC6A /* icon_arrowRight_disabled-28.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A9DBCE191A45820023BC6A /* icon_arrowRight_disabled-28.png */; };
+		A5A9DBD7191A45820023BC6A /* icon_arrowRight_disabled-28@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A9DBCF191A45820023BC6A /* icon_arrowRight_disabled-28@2x.png */; };
 		E423F47F17BC4D48007F17DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E423F47E17BC4D48007F17DF /* UIKit.framework */; };
 		E423F48117BC4D48007F17DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E423F48017BC4D48007F17DF /* Foundation.framework */; };
 		E423F48317BC4D48007F17DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E423F48217BC4D48007F17DF /* CoreGraphics.framework */; };
@@ -140,6 +148,15 @@
 		A59DCCF61918E8A400855A23 /* Subscriber-Speaker-Mute-35@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Subscriber-Speaker-Mute-35@2x.png"; sourceTree = "<group>"; };
 		A59DCCF71918E8A400855A23 /* TB Bug-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TB Bug-30.png"; sourceTree = "<group>"; };
 		A59DCCF81918E8A400855A23 /* TB Bug-30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TB Bug-30@2x.png"; sourceTree = "<group>"; };
+		A59DCD1E1919243600855A23 /* OpenTok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenTok.framework; path = "../objc-sdk-src/OpenTok.framework"; sourceTree = "<group>"; };
+		A5A9DBC8191A45820023BC6A /* icon_arrowLeft_enabled-28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_arrowLeft_enabled-28.png"; sourceTree = "<group>"; };
+		A5A9DBC9191A45820023BC6A /* icon_arrowLeft_enabled-28@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_arrowLeft_enabled-28@2x.png"; sourceTree = "<group>"; };
+		A5A9DBCA191A45820023BC6A /* icon_arrowRight_enabled-28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_arrowRight_enabled-28.png"; sourceTree = "<group>"; };
+		A5A9DBCB191A45820023BC6A /* icon_arrowRight_enabled-28@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_arrowRight_enabled-28@2x.png"; sourceTree = "<group>"; };
+		A5A9DBCC191A45820023BC6A /* icon_arrowLeft_disabled-28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_arrowLeft_disabled-28.png"; sourceTree = "<group>"; };
+		A5A9DBCD191A45820023BC6A /* icon_arrowLeft_disabled-28@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_arrowLeft_disabled-28@2x.png"; sourceTree = "<group>"; };
+		A5A9DBCE191A45820023BC6A /* icon_arrowRight_disabled-28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_arrowRight_disabled-28.png"; sourceTree = "<group>"; };
+		A5A9DBCF191A45820023BC6A /* icon_arrowRight_disabled-28@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_arrowRight_disabled-28@2x.png"; sourceTree = "<group>"; };
 		A5C3DA251907DE7F0064C1D5 /* libotkit-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libotkit-ios.a"; path = "../objc-sdk-src/otkit-objc-libs/build/Debug-iphoneos/libotkit-ios.a"; sourceTree = "<group>"; };
 		E409160217E233C300346C2F /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Opentok.framework; sourceTree = "<group>"; };
 		E423F47B17BC4D48007F17DF /* OpenTokRTC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenTokRTC.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,10 +223,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5C3DA261907DE7F0064C1D5 /* libotkit-ios.a in Frameworks */,
 				A56C2F3A18FFEF5100B1B7E0 /* libxml2.dylib in Frameworks */,
 				A56C2F3818FFEF4700B1B7E0 /* libsqlite3.dylib in Frameworks */,
 				E423F4DC17BC4EDA007F17DF /* libicucore.dylib in Frameworks */,
+				A59DCD1F1919243600855A23 /* OpenTok.framework in Frameworks */,
 				E423F47F17BC4D48007F17DF /* UIKit.framework in Frameworks */,
 				E423F48117BC4D48007F17DF /* Foundation.framework in Frameworks */,
 				E423F48317BC4D48007F17DF /* CoreGraphics.framework in Frameworks */,
@@ -265,6 +282,7 @@
 		E423F47D17BC4D48007F17DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A59DCD1E1919243600855A23 /* OpenTok.framework */,
 				A5C3DA251907DE7F0064C1D5 /* libotkit-ios.a */,
 				A56C2F3918FFEF5100B1B7E0 /* libxml2.dylib */,
 				A56C2F3718FFEF4700B1B7E0 /* libsqlite3.dylib */,
@@ -321,6 +339,14 @@
 		E423F48517BC4D48007F17DF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A5A9DBC8191A45820023BC6A /* icon_arrowLeft_enabled-28.png */,
+				A5A9DBC9191A45820023BC6A /* icon_arrowLeft_enabled-28@2x.png */,
+				A5A9DBCA191A45820023BC6A /* icon_arrowRight_enabled-28.png */,
+				A5A9DBCB191A45820023BC6A /* icon_arrowRight_enabled-28@2x.png */,
+				A5A9DBCC191A45820023BC6A /* icon_arrowLeft_disabled-28.png */,
+				A5A9DBCD191A45820023BC6A /* icon_arrowLeft_disabled-28@2x.png */,
+				A5A9DBCE191A45820023BC6A /* icon_arrowRight_disabled-28.png */,
+				A5A9DBCF191A45820023BC6A /* icon_arrowRight_disabled-28@2x.png */,
 				A59DCCE11918E8A400855A23 /* camera-switch_black-33.png */,
 				A59DCCE21918E8A400855A23 /* camera-switch_black-33@2x.png */,
 				A59DCCE31918E8A400855A23 /* archiving_on-5.png */,
@@ -496,6 +522,8 @@
 				E423F48917BC4D48007F17DF /* InfoPlist.strings in Resources */,
 				A59DCCF91918E8A400855A23 /* camera-switch_black-33.png in Resources */,
 				A59DCCFA1918E8A400855A23 /* camera-switch_black-33@2x.png in Resources */,
+				A5A9DBD3191A45820023BC6A /* icon_arrowRight_enabled-28@2x.png in Resources */,
+				A5A9DBD7191A45820023BC6A /* icon_arrowRight_disabled-28@2x.png in Resources */,
 				E48A137617F3AE7000259FBE /* Icon-60x60.png in Resources */,
 				A59DCD081918E8A400855A23 /* mic_receiving_data-35@2x.png in Resources */,
 				E48A137D17F3AE7000259FBE /* iTunesArtwork.png in Resources */,
@@ -516,13 +544,17 @@
 				A59DCD051918E8A400855A23 /* mic_muted-24.png in Resources */,
 				A59DCD041918E8A400855A23 /* camera_switch-33@2x.png in Resources */,
 				E48A137A17F3AE7000259FBE /* Icon-80.png in Resources */,
+				A5A9DBD0191A45820023BC6A /* icon_arrowLeft_enabled-28.png in Resources */,
+				A5A9DBD4191A45820023BC6A /* icon_arrowLeft_disabled-28.png in Resources */,
 				A59DCCFF1918E8A400855A23 /* Bandwidth_meter_strong-23.png in Resources */,
 				A59DCCFB1918E8A400855A23 /* archiving_on-5.png in Resources */,
 				E48A137917F3AE7000259FBE /* Icon-76x76@2x.png in Resources */,
+				A5A9DBD5191A45820023BC6A /* icon_arrowLeft_disabled-28@2x.png in Resources */,
 				E48A137817F3AE7000259FBE /* Icon-76x76.png in Resources */,
 				A59DCD011918E8A400855A23 /* Bandwidth_meter_weak-23.png in Resources */,
 				E48A137117F3AE7000259FBE /* Icon-29x29.png in Resources */,
 				A59DCD0A1918E8A400855A23 /* mic-24@2x.png in Resources */,
+				A5A9DBD1191A45820023BC6A /* icon_arrowLeft_enabled-28@2x.png in Resources */,
 				A59DCD0C1918E8A400855A23 /* Subscriber-Speaker-35@2x.png in Resources */,
 				E4EA156517DC9ABF0069B603 /* TBRed.png in Resources */,
 				A59DCD0E1918E8A400855A23 /* Subscriber-Speaker-Mute-35@2x.png in Resources */,
@@ -532,6 +564,8 @@
 				A59DCCFC1918E8A400855A23 /* archiving_on-5@2x.png in Resources */,
 				E48A137C17F3AE7000259FBE /* Icon-120.png in Resources */,
 				A59DCCFE1918E8A400855A23 /* archiving-off-15@2x.png in Resources */,
+				A5A9DBD2191A45820023BC6A /* icon_arrowRight_enabled-28.png in Resources */,
+				A5A9DBD6191A45820023BC6A /* icon_arrowRight_disabled-28.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,10 +726,7 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)",
-					"/Users/sridhar/src/objc-sdk-src",
-				);
+				FRAMEWORK_SEARCH_PATHS = "/Users/sridhar/src/objc-sdk-src";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "webrtcDemoiOS/OpenTokRTC-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -704,10 +735,7 @@
 					"\"$(SRCROOT)/webrtcDemoiOS\"",
 				);
 				INFOPLIST_FILE = "webrtcDemoiOS/OpenTokRTC-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/sridhar/src/objc-sdk-src/otkit-objc-libs/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = OpenTokRTC;
 				PROVISIONING_PROFILE = "";
@@ -723,10 +751,7 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)",
-					"/Users/sridhar/src/objc-sdk-src",
-				);
+				FRAMEWORK_SEARCH_PATHS = "/Users/sridhar/src/objc-sdk-src";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "webrtcDemoiOS/OpenTokRTC-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -735,10 +760,7 @@
 					"\"$(SRCROOT)/webrtcDemoiOS\"",
 				);
 				INFOPLIST_FILE = "webrtcDemoiOS/OpenTokRTC-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/sridhar/src/objc-sdk-src/otkit-objc-libs/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = OpenTokRTC;
 				PROVISIONING_PROFILE = "";

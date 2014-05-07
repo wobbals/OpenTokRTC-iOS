@@ -29,6 +29,8 @@
 @property (retain, nonatomic) IBOutlet UIImageView *archiveStatusImgView;
 @property (retain, nonatomic)  NSString *rid;
 @property (retain, nonatomic)  NSString *publisherName;
+@property (retain, nonatomic) IBOutlet UIImageView *rightArrowImgView;
+@property (retain, nonatomic) IBOutlet UIImageView *leftArrowImgView;
 
 - (IBAction)toggleAudioSubscribe:(id)sender;
 - (IBAction)toggleCameraPosition:(id)sender;

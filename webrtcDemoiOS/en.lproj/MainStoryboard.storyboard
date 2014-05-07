@@ -94,7 +94,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view alpha="0.30000001192092896" contentMode="scaleToFill" id="eeI-3i-7gc" userLabel="View (Top Bar)">
-                                <rect key="frame" x="0.0" y="0.0" width="319.99998940192773" height="66"/>
+                                <rect key="frame" x="0.0" y="0.0" width="319.99999804435259" height="66"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="VxH-sw-Vy1">
@@ -106,12 +106,12 @@
                                         </state>
                                     </button>
                                     <view contentMode="scaleToFill" id="eMf-XJ-fDR">
-                                        <rect key="frame" x="265.99998940192773" y="19" width="1" height="48"/>
+                                        <rect key="frame" x="265.99999804435259" y="19" width="1" height="48"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7Ku-eG-1yA">
-                                        <rect key="frame" x="269.99998940192773" y="22" width="44" height="44"/>
+                                        <rect key="frame" x="269.99999804435259" y="22" width="44" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -128,12 +128,12 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" id="Kkb-qg-Moz">
-                                        <rect key="frame" x="0.0" y="18" width="319.99998940192773" height="1"/>
+                                        <rect key="frame" x="0.0" y="18" width="319.99999804435259" height="1"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FVB-2m-VNv">
-                                        <rect key="frame" x="69" y="33" width="178.99999235058468" height="21"/>
+                                        <rect key="frame" x="69" y="33" width="178.99999858846422" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -228,6 +228,14 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_arrowLeft_disabled-28.png" id="egi-ET-MAt">
+                                <rect key="frame" x="10" y="264" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_arrowRight_disabled-28.png" id="nL7-aH-Sxi">
+                                <rect key="frame" x="270" y="264" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -241,6 +249,8 @@
                         <outlet property="bottomOverlayView" destination="Mii-rf-PVu" id="29Q-bc-Hcg"/>
                         <outlet property="cameraToggleButton" destination="fxe-La-k51" id="Oa1-nW-Bnd"/>
                         <outlet property="endCallButton" destination="rik-wl-V7C" id="kOf-OM-M3C"/>
+                        <outlet property="leftArrowImgView" destination="egi-ET-MAt" id="Jei-n2-pf2"/>
+                        <outlet property="rightArrowImgView" destination="nL7-aH-Sxi" id="GGS-wS-zUs"/>
                         <outlet property="topOverlayView" destination="eeI-3i-7gc" id="blz-xq-sgp"/>
                         <outlet property="videoContainerView" destination="YeN-sM-X0P" id="yCE-gE-nTj"/>
                     </connections>
@@ -275,6 +285,8 @@
         <image name="archiving-off-15.png" width="15" height="15"/>
         <image name="camera-switch_black-33.png" width="33" height="33"/>
         <image name="camera_switch-33.png" width="33" height="33"/>
+        <image name="icon_arrowLeft_disabled-28.png" width="28" height="28"/>
+        <image name="icon_arrowRight_disabled-28.png" width="28" height="28"/>
         <image name="mic-24.png" width="24" height="24"/>
         <image name="mic_muted-24.png" width="24" height="24"/>
     </resources>
