@@ -171,8 +171,10 @@ OTPublisherDelegate>{
     }];
 }
 
+
 - (void) viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     // if device starts in landscape mode
     [self willAnimateRotationToInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation] duration:1.0];
 }
@@ -203,12 +205,7 @@ OTPublisherDelegate>{
             
             [UIView animateWithDuration:0.5 animations:^{
                 
-                CGRect frame = self.videoContainerView.frame;
-                frame.size.height -=
-                self.bottomOverlayView.frame.size.height;
-                self.videoContainerView.frame = frame;
-                
-                frame = _currentSubscriber.view.frame;
+                CGRect frame = _currentSubscriber.view.frame;
                 frame.size.height =
                 self.videoContainerView.frame.size.height;
                 _currentSubscriber.view.frame = frame;
@@ -239,16 +236,7 @@ OTPublisherDelegate>{
             
             [UIView animateWithDuration:0.5 animations:^{
                 
-                CGRect frame = self.videoContainerView.frame;
-                if (orientation == UIInterfaceOrientationLandscapeLeft) {
-                    frame.origin.x +=
-                    self.bottomOverlayView.frame.size.width;
-                }
-                frame.size.width -=
-                self.bottomOverlayView.frame.size.width;
-                self.videoContainerView.frame = frame;
-                
-                frame = _currentSubscriber.view.frame;
+                CGRect frame = _currentSubscriber.view.frame;
                 frame.size.width =
                 self.videoContainerView.frame.size.width;
                 _currentSubscriber.view.frame = frame;
@@ -279,6 +267,15 @@ OTPublisherDelegate>{
                                  PUBLISHER_PREVIEW_HEIGHT),
                                 PUBLISHER_PREVIEW_WIDTH,
                                 PUBLISHER_PREVIEW_HEIGHT)];
+                    
+                    self.rightArrowImgView.frame =
+                    CGRectMake(videoContainerView.frame.size.width - 40 -
+                               10 - PUBLISHER_BAR_HEIGHT,
+                               videoContainerView.frame.size.height/2 - 20,
+                               40,
+                               40);
+                    
+                    
                 } else {
                     [_publisher.view setFrame:
                      CGRectMake(PUBLISHER_BAR_HEIGHT + 8,
@@ -288,6 +285,13 @@ OTPublisherDelegate>{
                                  PUBLISHER_PREVIEW_HEIGHT),
                                 PUBLISHER_PREVIEW_WIDTH,
                                 PUBLISHER_PREVIEW_HEIGHT)];
+                    
+                    self.leftArrowImgView.frame =
+                    CGRectMake(10 + PUBLISHER_BAR_HEIGHT,
+                               videoContainerView.frame.size.height/2 - 20,
+                               40,
+                               40);
+                    
                 }
             } completion:^(BOOL finished) {
                 
@@ -320,15 +324,10 @@ OTPublisherDelegate>{
             
             [UIView animateWithDuration:0.5 animations:^{
                 
-                CGRect frame = self.videoContainerView.frame;
+                CGRect frame = _currentSubscriber.view.frame;
                 // User really tapped (not from willAnimateToration...)
                 if (tgr)
                 {
-                    frame.size.height +=
-                    self.bottomOverlayView.frame.size.height;
-                    self.videoContainerView.frame = frame;
-                    
-                    frame = _currentSubscriber.view.frame;
                     frame.size.height =
                     self.videoContainerView.frame.size.height;
                     _currentSubscriber.view.frame = frame;
@@ -358,16 +357,7 @@ OTPublisherDelegate>{
             
             [UIView animateWithDuration:0.5 animations:^{
                 
-                CGRect frame = self.videoContainerView.frame;
-                if (orientation == UIInterfaceOrientationLandscapeLeft) {
-                    frame.origin.x -=
-                    self.bottomOverlayView.frame.size.width;
-                }
-                frame.size.width +=
-                self.bottomOverlayView.frame.size.width;
-                self.videoContainerView.frame = frame;
-                
-                frame = _currentSubscriber.view.frame;
+                CGRect frame = _currentSubscriber.view.frame;
                 frame.size.width =
                 self.videoContainerView.frame.size.width;
                 _currentSubscriber.view.frame = frame;
@@ -379,8 +369,22 @@ OTPublisherDelegate>{
                 frame = self.bottomOverlayView.frame;
                 if (orientation == UIInterfaceOrientationLandscapeRight) {
                     frame.origin.x += frame.size.width;
+                    
+                    self.rightArrowImgView.frame =
+                    CGRectMake(videoContainerView.frame.size.width - 40 - 10,
+                               videoContainerView.frame.size.height/2 - 20,
+                               40,
+                               40);
+                    
                 } else {
                     frame.origin.x -= frame.size.width;
+                    
+                    self.leftArrowImgView.frame =
+                    CGRectMake(10 ,
+                               videoContainerView.frame.size.height/2 - 20,
+                               40,
+                               40);
+                    
                 }
                 
                 self.bottomOverlayView.frame = frame;
@@ -478,8 +482,7 @@ OTPublisherDelegate>{
 		 CGRectMake(0,
                     0,
                     self.view.frame.size.width,
-                    self.view.frame.size.height -
-                    (isInFullScreen ? 0 : PUBLISHER_BAR_HEIGHT))];
+                    self.view.frame.size.height)];
         
 		[_publisher.view setFrame:
 		 CGRectMake(8,
@@ -569,10 +572,10 @@ OTPublisherDelegate>{
                    videoContainerView.frame.size.height/2 - 20,
                    40,
                    40);
-
+        
 		[videoContainerView setContentSize:
          CGSizeMake(videoContainerView.frame.size.width * (connectionsCount ),
-                    videoContainerView.frame.size.height - 18)];
+                    videoContainerView.frame.size.height)];
 	}
 	else if (orientation == UIInterfaceOrientationLandscapeLeft ||
              orientation == UIInterfaceOrientationLandscapeRight) {
@@ -583,7 +586,7 @@ OTPublisherDelegate>{
             [videoContainerView setFrame:
 			 CGRectMake(0,
                         0,
-                        self.view.frame.size.width - PUBLISHER_BAR_HEIGHT,
+                        self.view.frame.size.width,
                         self.view.frame.size.height)];
             
 			[_publisher.view setFrame:
@@ -636,15 +639,16 @@ OTPublisherDelegate>{
                        videoContainerView.frame.size.height/2 - 20,
                        40,
                        40);
-
+            
+            
             
 		}
 		else
 		{
 			[videoContainerView setFrame:
-			 CGRectMake(PUBLISHER_BAR_HEIGHT,
+			 CGRectMake(0,
                         0,
-                        self.view.frame.size.width - PUBLISHER_BAR_HEIGHT,
+                        self.view.frame.size.width ,
                         self.view.frame.size.height)];
             
 			[_publisher.view setFrame:
@@ -696,7 +700,7 @@ OTPublisherDelegate>{
                        videoContainerView.frame.size.height/2 - 20,
                        40,
                        40);
-
+            
 		}
         
 		// Mic button
@@ -751,7 +755,7 @@ OTPublisherDelegate>{
         
 		[videoContainerView setContentSize:
          CGSizeMake(videoContainerView.frame.size.width * connectionsCount,
-                    videoContainerView.frame.size.height - 18)];
+                    videoContainerView.frame.size.height)];
 	}
     
 	if (isInFullScreen) {
@@ -791,6 +795,7 @@ OTPublisherDelegate>{
 		[self showAsCurrentSubscriber:[allSubscribers
                                        objectForKey:connectionId]];
 	}
+    [self resetArrowsStates];
 }
 
 - (void)showAsCurrentSubscriber:(TBExampleSubscriber *)subscriber
@@ -853,14 +858,34 @@ OTPublisherDelegate>{
 
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer
 {
-	// user is panning publisher object
-	CGPoint translation = [recognizer translationInView:_publisher.view];
     
-	recognizer.view.center =
-    CGPointMake(recognizer.view.center.x + translation.x,
-                recognizer.view.center.y + translation.y);
-	[recognizer setTranslation:CGPointMake(0, 0) inView:_publisher.view];
+    CGPoint translation = [recognizer translationInView:_publisher.view];
+    CGRect recognizerFrame = recognizer.view.frame;
+    recognizerFrame.origin.x += translation.x;
+    recognizerFrame.origin.y += translation.y;
+    
+    
+    if (CGRectContainsRect(self.view.bounds, recognizerFrame)) {
+        recognizer.view.frame = recognizerFrame;
+    }
+    else {
+        if (recognizerFrame.origin.y < self.view.bounds.origin.y) {
+            recognizerFrame.origin.y = 0;
+        }
+        else if (recognizerFrame.origin.y + recognizerFrame.size.height > self.view.bounds.size.height) {
+            recognizerFrame.origin.y = self.view.bounds.size.height - recognizerFrame.size.height;
+        }
+        
+        if (recognizerFrame.origin.x < self.view.bounds.origin.x) {
+            recognizerFrame.origin.x = 0;
+        }
+        else if (recognizerFrame.origin.x + recognizerFrame.size.width > self.view.bounds.size.width) {
+            recognizerFrame.origin.x = self.view.bounds.size.width - recognizerFrame.size.width;
+        }
+    }
+    [recognizer setTranslation:CGPointMake(0, 0) inView:_publisher.view];
 }
+
 
 - (void)handleArrowTap:(UIPanGestureRecognizer *)recognizer
 {
