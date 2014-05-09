@@ -21,7 +21,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (retain, nonatomic) NSTimer *overlayTimer;
 @property (retain, nonatomic) IBOutlet UIButton *audioSubUnsubButton;
-@property (retain, nonatomic) IBOutlet UIButton *callButton;
+@property (retain, nonatomic) IBOutlet UIButton *endCallButton;
 @property (retain, nonatomic) IBOutlet UIView *micSeparator;
 @property (retain, nonatomic) IBOutlet UIView *cameraSeparator;
 @property (retain, nonatomic) IBOutlet UIView *archiveOverlay;
@@ -29,9 +29,11 @@
 @property (retain, nonatomic) IBOutlet UIImageView *archiveStatusImgView;
 @property (retain, nonatomic)  NSString *rid;
 @property (retain, nonatomic)  NSString *publisherName;
+@property (retain, nonatomic) IBOutlet UIImageView *rightArrowImgView;
+@property (retain, nonatomic) IBOutlet UIImageView *leftArrowImgView;
 
 - (IBAction)toggleAudioSubscribe:(id)sender;
 - (IBAction)toggleCameraPosition:(id)sender;
 - (IBAction)toggleAudioPublish:(id)sender;
-- (IBAction)callAction:(UIButton *)button;
+- (IBAction)endCallAction:(UIButton *)button;
 @end
