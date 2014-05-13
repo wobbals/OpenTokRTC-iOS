@@ -18,7 +18,7 @@ NSString *kToken = @"";
 
 #define APP_IN_FULL_SCREEN @"appInFullScreenMode"
 #define PUBLISHER_BAR_HEIGHT 50.0f
-#define SUBSCRIBER_BAR_HEIGHT 66.0f
+#define SUBSCRIBER_BAR_HEIGHT 44.0f
 #define ARCHIVE_BAR_HEIGHT 35.0f
 #define PUBLISHER_ARCHIVE_CONTAINER_HEIGHT 85.0f
 
@@ -121,8 +121,14 @@ OTPublisherDelegate>{
     
     
 	// set up look of the page
-	[self.navigationController setNavigationBarHidden:YES];
+	[self.navigationController setNavigationBarHidden:NO];
     [self setNeedsStatusBarAppearanceUpdate];
+    [self.navigationController.navigationBar setTintColor:
+     [UIColor colorWithRed:54.0f
+                     green:54.0f
+                      blue:54.0f
+                     alpha:1]];
+    
     
     
 	// listen to taps around the screen, and hide/show overlay views
@@ -151,6 +157,8 @@ OTPublisherDelegate>{
     
     self.archiveOverlay.hidden = YES;
     
+    self.title = self.rid;
+    
     NSString* roomInfoUrl = [[NSString alloc] initWithFormat:@"https://opentokrtc.com/%@.json", self.rid];
     NSURL *url = [NSURL URLWithString: roomInfoUrl];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
@@ -158,7 +166,7 @@ OTPublisherDelegate>{
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
         if (error){
-            NSLog(@"Error,%@", [error localizedDescription]);
+            NSLog(@"Error,%@, url : %@", [error localizedDescription],roomInfoUrl);
         }
         else{
             NSDictionary *roomInfo = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
@@ -171,12 +179,21 @@ OTPublisherDelegate>{
     }];
 }
 
+-(void) viewWillDisappear:(BOOL)animated {
+    if ([self.navigationController.viewControllers indexOfObject:self] == NSNotFound) {
+        // Navigation button was pressed. Do some stuff
+        [self endCallAction:nil];
+    }
+    [super viewWillDisappear:animated];
+}
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
     // if device starts in landscape mode
-    [self willAnimateRotationToInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation] duration:1.0];
+    [self willAnimateRotationToInterfaceOrientation:
+     [[UIApplication sharedApplication] statusBarOrientation] duration:1.0];
+
+    [super viewWillAppear:animated];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -186,6 +203,7 @@ OTPublisherDelegate>{
 
 - (void)viewTapped:(UITapGestureRecognizer *)tgr
 {
+    
 	BOOL isInFullScreen = [[[self topOverlayView].layer
                             valueForKey:APP_IN_FULL_SCREEN] boolValue];
     
@@ -411,6 +429,7 @@ OTPublisherDelegate>{
         [self reArrangeSubscribers];
     }
     
+    [self resetArrowsStates];
 }
 
 - (void)overlayTimerAction
@@ -531,13 +550,24 @@ OTPublisherDelegate>{
         CGRectMake(0, 0, 90, PUBLISHER_BAR_HEIGHT);
         
         //adjust border layer
-		CALayer *borderLayer = [[self.cameraToggleButton.layer sublayers]
-                                objectAtIndex:1];
+		CALayer *borderLayer = nil;
+        
+        if ([[self.cameraToggleButton.layer sublayers] count] > 1)
+        {
+            borderLayer =[[self.cameraToggleButton.layer sublayers]
+                                                   objectAtIndex:1];
+        }
+        else
+        {
+            borderLayer =[[self.cameraToggleButton.layer sublayers]
+                          objectAtIndex:0];
+        }
+        
 		borderLayer.frame =
         CGRectMake(-1,
                    -1,
-                   CGRectGetWidth(self.cameraToggleButton.frame),
-                   CGRectGetHeight(self.cameraToggleButton.frame) + 2);
+                   CGRectGetWidth(_cameraToggleButton.frame),
+                   CGRectGetHeight(_cameraToggleButton.frame) + 2);
         
 		// adjust call button
 		self.endCallButton.frame =
@@ -553,13 +583,22 @@ OTPublisherDelegate>{
                    90,
                    PUBLISHER_BAR_HEIGHT);
         
-		borderLayer = [[self.audioPubUnpubButton.layer sublayers]
-                       objectAtIndex:1];
+        if ([[self.audioPubUnpubButton.layer sublayers] count] > 1)
+        {
+            borderLayer = [[self.audioPubUnpubButton.layer sublayers]
+                           objectAtIndex:1];
+        }
+        else
+        {
+            borderLayer = [[self.audioPubUnpubButton.layer sublayers]
+                           objectAtIndex:0];
+        }
+        
 		borderLayer.frame =
         CGRectMake(-1,
                    -1,
-                   CGRectGetWidth(self.audioPubUnpubButton.frame) + 5,
-                   CGRectGetHeight(self.audioPubUnpubButton.frame) + 2);
+                   CGRectGetWidth(_audioPubUnpubButton.frame) + 5,
+                   CGRectGetHeight(_audioPubUnpubButton.frame) + 2);
         
         self.leftArrowImgView.frame =
         CGRectMake(10,
@@ -895,7 +934,7 @@ OTPublisherDelegate>{
         
         int currentPage = (int)(videoContainerView.contentOffset.x /
                                 videoContainerView.frame.size.width) ;
-        
+
         TBExampleSubscriber *nextSubscriber = [allSubscribers objectForKey:
                                                [allConnectionsIds objectAtIndex:currentPage - 1]];
         
@@ -925,41 +964,30 @@ OTPublisherDelegate>{
 
 - (void)resetArrowsStates
 {
-    
-    if (!_currentSubscriber)
+
+    self.leftArrowImgView.hidden = YES;
+    self.rightArrowImgView.hidden = YES;
+
+    BOOL isInFullScreen = [[[self topOverlayView].layer
+                            valueForKey:APP_IN_FULL_SCREEN] boolValue];
+
+    if (isInFullScreen || !_currentSubscriber ||
+        (_currentSubscriber.view.tag == 0 && [allConnectionsIds count] <= 1))
     {
-        self.leftArrowImgView.image =
-        [UIImage imageNamed:@"icon_arrowLeft_disabled-28.png"];
-        self.leftArrowImgView.userInteractionEnabled = NO;
-        
-        self.rightArrowImgView.image =
-        [UIImage imageNamed:@"icon_arrowRight_disabled-28.png"];
-        self.rightArrowImgView.userInteractionEnabled = NO;
         return;
     }
     
-    if (_currentSubscriber.view.tag == 0)
+    if (_currentSubscriber.view.tag == 0 && [allConnectionsIds count] > 1)
     {
-        self.leftArrowImgView.image =
-        [UIImage imageNamed:@"icon_arrowLeft_disabled-28.png"];
-        self.leftArrowImgView.userInteractionEnabled = NO;
+        self.rightArrowImgView.hidden = NO;
+    } else if (_currentSubscriber.view.tag == [allConnectionsIds count] - 1 &&
+        [allConnectionsIds count] > 1)
+    {
+        self.leftArrowImgView.hidden = NO;
     } else
     {
-        self.leftArrowImgView.image =
-        [UIImage imageNamed:@"icon_arrowLeft_enabled-28.png"];
-        self.leftArrowImgView.userInteractionEnabled = YES;
-    }
-    
-    if (_currentSubscriber.view.tag == [allConnectionsIds count] - 1)
-    {
-        self.rightArrowImgView.image =
-        [UIImage imageNamed:@"icon_arrowRight_disabled-28.png"];
-        self.rightArrowImgView.userInteractionEnabled = NO;
-    } else
-    {
-        self.rightArrowImgView.image =
-        [UIImage imageNamed:@"icon_arrowRight_enabled-28.png"];
-        self.rightArrowImgView.userInteractionEnabled = YES;
+        self.leftArrowImgView.hidden = NO;
+        self.rightArrowImgView.hidden = NO;
     }
 }
 
@@ -1041,7 +1069,12 @@ OTPublisherDelegate>{
     {
         [self stopArchiveAnimation];
     }
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    if([self.navigationController.viewControllers indexOfObject:self] !=
+       NSNotFound)
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)    session:(OTSession *)session
@@ -1132,13 +1165,6 @@ OTPublisherDelegate>{
     [self resetArrowsStates];
 }
 
-- (void)publisher:(OTPublisherKit *)publisher
-	streamCreated:(OTStream *)stream
-{
-    // create self subscriber
-	[self createSubscriber:stream];
-}
-
 - (void)subscriberDidConnectToStream:(OTSubscriberKit *)subscriber
 {
 	NSLog(@"subscriberDidConnectToStream %@", subscriber.stream.name);
@@ -1189,7 +1215,7 @@ OTPublisherDelegate>{
 - (void)showAlert:(NSString *)string
 {
     // show alertview on main UI
-	dispatch_async(dispatch_get_main_queue(), ^{
+//	dispatch_async(dispatch_get_main_queue(), ^{
         UIAlertView *alert = [[[UIAlertView alloc]
                                initWithTitle:@"Message from video session"
                                message:string
@@ -1197,7 +1223,7 @@ OTPublisherDelegate>{
                                cancelButtonTitle:@"OK"
                                otherButtonTitles:nil] autorelease];
         [alert show];
-    });
+  //  });
 }
 
 - (void)didReceiveMemoryWarning
@@ -1225,6 +1251,7 @@ OTPublisherDelegate>{
 	[_userNameLabel release];
 	[_audioSubUnsubButton release];
 	[_overlayTimer release];
+    _audioPubUnpubButton = nil;
     
 	[_endCallButton release];
 	[_cameraSeparator release];

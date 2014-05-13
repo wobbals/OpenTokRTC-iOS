@@ -6,6 +6,9 @@
 //  Copyright (c) 2013 Song Zheng. All rights reserved.
 //
 
+#define OPENTOK_INFO @"OpenTokInfo"
+#define OPENTOK_USER_NAME @"OpenTokUserName"
+#define OPENTOK_ROOM_NAME @"OpenTokRoomName"
 #import "ViewController.h"
 
 @interface ViewController (){
@@ -44,7 +47,17 @@
       [self setNeedsStatusBarAppearanceUpdate];
     }
     
-    self.userName.text = [[UIDevice currentDevice] name];
+    NSDictionary *userInfo = [[NSUserDefaults standardUserDefaults]
+                              valueForKey:OPENTOK_INFO];
+    if(!userInfo)
+    {
+        self.userName.text = [[UIDevice currentDevice] name];
+    }
+    else
+    {
+        self.roomName.text = [userInfo valueForKey:OPENTOK_ROOM_NAME];
+        self.userName.text = [userInfo valueForKey:OPENTOK_USER_NAME];
+    }
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
@@ -78,6 +91,11 @@
     // user tapped on the view
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
 #pragma mark - User Interaction
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
     NSString* inputRoomName = [[_roomName text] stringByReplacingOccurrencesOfString:@" " withString:@""];;
@@ -90,6 +108,17 @@
     if ([[segue identifier] isEqualToString:@"startChat"])
     {
         [_roomName resignFirstResponder];
+        NSDictionary *tempUserInfo = [[NSUserDefaults standardUserDefaults]
+                                  valueForKey:OPENTOK_INFO];
+        NSMutableDictionary *userInfo = [NSMutableDictionary
+                                         dictionaryWithDictionary:tempUserInfo];
+        [userInfo setValue:self.roomName.text forKey:OPENTOK_ROOM_NAME];
+        [userInfo setValue:self.userName.text forKey:OPENTOK_USER_NAME];
+
+        [[NSUserDefaults standardUserDefaults] setValue:userInfo
+                                                 forKey:OPENTOK_INFO];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
         NSLog(@"going to chat room...");
         RoomViewController *vc = [segue destinationViewController];
         vc.rid = [[_roomName text] stringByReplacingOccurrencesOfString:@" " withString:@""];
