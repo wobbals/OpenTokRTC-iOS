@@ -31,6 +31,7 @@
 @property (retain, nonatomic)  NSString *publisherName;
 @property (retain, nonatomic) IBOutlet UIImageView *rightArrowImgView;
 @property (retain, nonatomic) IBOutlet UIImageView *leftArrowImgView;
+@property (retain, nonatomic) IBOutlet UIActivityIndicatorView *spinningWheel;
 
 - (IBAction)toggleAudioSubscribe:(id)sender;
 - (IBAction)toggleCameraPosition:(id)sender;

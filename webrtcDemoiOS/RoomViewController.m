@@ -123,13 +123,7 @@ OTPublisherDelegate>{
 	// set up look of the page
 	[self.navigationController setNavigationBarHidden:NO];
     [self setNeedsStatusBarAppearanceUpdate];
-    [self.navigationController.navigationBar setTintColor:
-     [UIColor colorWithRed:54.0f
-                     green:54.0f
-                      blue:54.0f
-                     alpha:1]];
-    
-    
+    self.navigationItem.hidesBackButton = YES;
     
 	// listen to taps around the screen, and hide/show overlay views
 	UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc]
@@ -1013,6 +1007,7 @@ OTPublisherDelegate>{
     {
         [self showAlert:[error localizedDescription]];
     }
+    [self.spinningWheel stopAnimating];
 }
 
 - (void)reArrangeSubscribers
@@ -1209,7 +1204,15 @@ OTPublisherDelegate>{
 		NSLog(@"disconnecting....");
 		[_session disconnect:nil];
 		return;
-	}
+	} else
+    {
+        //all other cases just go back to home screen.
+        if([self.navigationController.viewControllers indexOfObject:self] !=
+           NSNotFound)
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
 }
 
 - (void)showAlert:(NSString *)string
@@ -1251,7 +1254,6 @@ OTPublisherDelegate>{
 	[_userNameLabel release];
 	[_audioSubUnsubButton release];
 	[_overlayTimer release];
-    _audioPubUnpubButton = nil;
     
 	[_endCallButton release];
 	[_cameraSeparator release];
@@ -1261,6 +1263,7 @@ OTPublisherDelegate>{
 	[_archiveStatusImgView release];
     [_leftArrowImgView release];
     [_rightArrowImgView release];
+    [_spinningWheel release];
 	[super dealloc];
 }
 
