@@ -123,6 +123,7 @@ OTPublisherDelegate>{
 	// set up look of the page
 	[self.navigationController setNavigationBarHidden:NO];
     [self setNeedsStatusBarAppearanceUpdate];
+    self.navigationItem.hidesBackButton = YES;
     
 	// listen to taps around the screen, and hide/show overlay views
 	UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc]
@@ -1203,7 +1204,15 @@ OTPublisherDelegate>{
 		NSLog(@"disconnecting....");
 		[_session disconnect:nil];
 		return;
-	}
+	} else
+    {
+        //all other cases just go back to home screen.
+        if([self.navigationController.viewControllers indexOfObject:self] !=
+           NSNotFound)
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
 }
 
 - (void)showAlert:(NSString *)string
