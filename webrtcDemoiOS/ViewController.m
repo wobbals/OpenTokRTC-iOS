@@ -42,7 +42,7 @@
     [tgr release];
     
     // set up the look of the page
-    [self.navigationController setNavigationBarHidden:YES];
+    [self.navigationController setNavigationBarHidden:NO];
     if (!SYSTEM_VERSION_LESS_THAN(@"7.0")) {
       [self setNeedsStatusBarAppearanceUpdate];
     }
@@ -58,6 +58,38 @@
         self.roomName.text = [userInfo valueForKey:OPENTOK_ROOM_NAME];
         self.userName.text = [userInfo valueForKey:OPENTOK_USER_NAME];
     }
+    
+    self.title = @"OpenTokRTC";
+    if (SYSTEM_VERSION_LESS_THAN(@"7.0"))
+    {
+        self.navigationController.navigationBar.tintColor =
+        [UIColor colorWithRed:54.0f/255.0f
+                        green:54.0f/255.0f
+                         blue:54.0f/255.0f
+                        alpha:1.0];
+        
+    } else
+    {
+        self.navigationController.navigationBar.barTintColor =
+        [UIColor colorWithRed:54.0f/255.0f
+                        green:54.0f/255.0f
+                         blue:54.0f/255.0f
+                        alpha:1.0];
+        self.navigationController.navigationBar.translucent = NO;
+    }
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.title = @"OpenTokRTC";
+    [self willAnimateRotationToInterfaceOrientation:
+     [[UIApplication sharedApplication] statusBarOrientation] duration:1.0];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    self.title = nil;
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
@@ -72,6 +104,20 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    if (toInterfaceOrientation ==
+        UIInterfaceOrientationIsPortrait(toInterfaceOrientation))
+    {
+        self.buttonName.frame =
+        CGRectMake(119, 296, 82, 42);
+    } else
+    {
+        self.buttonName.frame =
+        CGRectMake(299, 172, 82, 42);
+    }
 }
 
 #pragma mark - Gestures
@@ -89,11 +135,6 @@
 - (void)viewTapped:(UITapGestureRecognizer *)tgr
 {
     // user tapped on the view
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [self.navigationController setNavigationBarHidden:YES];
 }
 
 #pragma mark - User Interaction
