@@ -48,8 +48,8 @@ OTPublisherDelegate>{
 	NSMutableArray *allConnectionsIds;
     
 	OTSession *_session;
-	TBExamplePublisher *_publisher;
-	TBExampleSubscriber *_currentSubscriber;
+	OTPublisher *_publisher;
+	OTSubscriber *_currentSubscriber;
 	CGPoint _startPosition;
     
 	BOOL initialized;
@@ -869,7 +869,7 @@ OTPublisherDelegate>{
 - (void)setupPublisher
 {
 	// create one time publisher and style publisher
-	_publisher = [[TBExamplePublisher alloc] initWithDelegate:self];
+	_publisher = [[OTPublisher alloc] initWithDelegate:self];
     
     // set name of the publisher
 	[_publisher setName:self.publisherName];
@@ -1110,7 +1110,7 @@ OTPublisherDelegate>{
 {
 	
     // create subscriber
-	TBExampleSubscriber *subscriber = [[TBExampleSubscriber alloc]
+	TBExampleSubscriber *subscriber = [[OTSubscriber alloc]
                                        initWithStream:stream delegate:self];
     
 	[allSubscribers setObject:subscriber forKey:stream.connection.connectionId];
