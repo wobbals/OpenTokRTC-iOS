@@ -64,7 +64,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by OpenTok" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hHf-ny-a7a">
-                                <rect key="frame" x="93" y="504" width="134" height="21"/>
+                                <rect key="frame" x="93" y="436" width="134" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -121,7 +121,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view alpha="0.600000011920929" contentMode="scaleToFill" id="eeI-3i-7gc" userLabel="View (Top Bar)">
-                                <rect key="frame" x="0.0" y="0.0" width="319.99998342863387" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="VxH-sw-Vy1">
@@ -133,12 +133,12 @@
                                         </state>
                                     </button>
                                     <view contentMode="scaleToFill" id="eMf-XJ-fDR">
-                                        <rect key="frame" x="265.99998342863387" y="-1" width="1" height="44"/>
+                                        <rect key="frame" x="266" y="-1" width="1" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7Ku-eG-1yA">
-                                        <rect key="frame" x="269.99998342863387" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="270" y="0.0" width="44" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -155,7 +155,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FVB-2m-VNv">
-                                        <rect key="frame" x="58" y="11" width="194.99998722760299" height="21"/>
+                                        <rect key="frame" x="58" y="11" width="195.00000098301814" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -165,7 +165,7 @@
                                 <color key="backgroundColor" red="0.2117647231" green="0.2117647231" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="eWv-B2-kRY">
-                                <rect key="frame" x="0.0" y="483" width="320" height="85"/>
+                                <rect key="frame" x="0.0" y="419" width="320" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view alpha="0.600000011920929" contentMode="scaleToFill" id="IeT-Ec-6b0" userLabel="View (Archive Bar)">
@@ -255,11 +255,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="VAH-UY-agy"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="archiveOverlay" destination="IeT-Ec-6b0" id="GfW-Uq-RU0"/>
                         <outlet property="archiveStatusImgView" destination="Qgu-Vh-81h" id="Pxm-cn-Z5t"/>
