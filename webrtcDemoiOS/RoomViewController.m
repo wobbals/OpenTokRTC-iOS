@@ -1177,7 +1177,7 @@ OTPublisherDelegate>{
 	NSLog(@"sessionDidFail");
 	[self showAlert:
      [NSString stringWithFormat:@"There was an error connecting to session %@",
-      session.sessionId]];
+      error.localizedDescription]];
 	[self endCallAction:nil];
 }
 
@@ -1218,7 +1218,7 @@ OTPublisherDelegate>{
 - (void)showAlert:(NSString *)string
 {
     // show alertview on main UI
-//	dispatch_async(dispatch_get_main_queue(), ^{
+	dispatch_async(dispatch_get_main_queue(), ^{
         UIAlertView *alert = [[[UIAlertView alloc]
                                initWithTitle:@"Message from video session"
                                message:string
@@ -1226,7 +1226,7 @@ OTPublisherDelegate>{
                                cancelButtonTitle:@"OK"
                                otherButtonTitles:nil] autorelease];
         [alert show];
-  //  });
+    });
 }
 
 - (void)didReceiveMemoryWarning
