@@ -122,7 +122,7 @@ OTPublisherDelegate>{
     
 	// set up look of the page
 	[self.navigationController setNavigationBarHidden:NO];
-    [self setNeedsStatusBarAppearanceUpdate];
+    
     self.navigationItem.hidesBackButton = YES;
     
 	// listen to taps around the screen, and hide/show overlay views
@@ -1329,36 +1329,23 @@ OTPublisherDelegate>{
     [self.archiveStatusImgView stopAnimating];
     self.archiveStatusLbl.text = @"Archiving off";
     self.archiveStatusImgView.image =
-    [UIImage imageNamed:@"archiving_off-Small.png"];
+    [UIImage imageNamed:@"archiving-off-15.png"];
 }
 
-- (void)session:(OTSession*)session
-archiveCreatedWithId:(NSString*)archiveId
-           name:(NSString*)name
-         status:(NSString*)status
+- (void)     session:(OTSession*)session
+archiveStartedWithId:(NSString*)archiveId
+                name:(NSString*)name
 {
-    NSLog(@"session archiving status changed %@", status);
-    if ([status isEqualToString:@"started"])
-    {
-        [self startArchiveAnimation];
-    } else
-    {
-        [self stopArchiveAnimation];
-    }
+    [self startArchiveAnimation];
 }
 
-- (void)session:(OTSession*)session
-archiveUpdatedWithId:(NSString*)archiveId
-         status:(NSString*)status
+- (void)     session:(OTSession*)session
+archiveStoppedWithId:(NSString*)archiveId
 {
-    NSLog(@"session archiving status changed %@", status);
-    if ([status isEqualToString:@"started"])
-    {
-        [self startArchiveAnimation];
-    } else
-    {
-        [self stopArchiveAnimation];
-    }
+    NSLog(@"stopping session archiving");
+    [self stopArchiveAnimation];
+    
 }
+
 
 @end
