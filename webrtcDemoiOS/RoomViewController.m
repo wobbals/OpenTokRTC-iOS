@@ -1081,12 +1081,12 @@ OTPublisherDelegate>{
 	TBExampleSubscriber *subscriber = [allSubscribers objectForKey:
                                        stream.connection.connectionId];
     
-    OTError *error = nil;
-	[_session unsubscribe:subscriber error:&error];
-    if (error)
-    {
-        [self showAlert:[error localizedDescription]];
-    }
+//    OTError *error = nil;
+//	[_session unsubscribe:subscriber error:&error];
+//    if (error)
+//    {
+//        [self showAlert:[error localizedDescription]];
+//    }
     
 	// remove from superview
 	[subscriber.view removeFromSuperview];
@@ -1113,25 +1113,25 @@ OTPublisherDelegate>{
 	TBExampleSubscriber *subscriber = [[OTSubscriber alloc]
                                        initWithStream:stream delegate:self];
     
-	[allSubscribers setObject:subscriber forKey:stream.connection.connectionId];
-	[allConnectionsIds addObject:stream.connection.connectionId];
-    
-    // set subscriber position and size
-	CGFloat containerWidth = CGRectGetWidth(videoContainerView.bounds);
-	CGFloat containerHeight = CGRectGetHeight(videoContainerView.bounds);
-	int count = [allConnectionsIds count] - 1;
-	[subscriber.view setFrame:
-     CGRectMake(count *
-                CGRectGetWidth(videoContainerView.bounds),
-                0,
-                containerWidth,
-                containerHeight)];
-    
-	subscriber.view.tag = count;
-    
-    // add to video container view
-	[videoContainerView insertSubview:subscriber.view
-                         belowSubview:_publisher.view];
+//	[allSubscribers setObject:subscriber forKey:stream.connection.connectionId];
+//	[allConnectionsIds addObject:stream.connection.connectionId];
+//    
+//    // set subscriber position and size
+//	CGFloat containerWidth = CGRectGetWidth(videoContainerView.bounds);
+//	CGFloat containerHeight = CGRectGetHeight(videoContainerView.bounds);
+//	int count = [allConnectionsIds count] - 1;
+//	[subscriber.view setFrame:
+//     CGRectMake(count *
+//                CGRectGetWidth(videoContainerView.bounds),
+//                0,
+//                containerWidth,
+//                containerHeight)];
+//    
+//	subscriber.view.tag = count;
+//    
+//    // add to video container view
+//	[videoContainerView insertSubview:subscriber.view
+//                         belowSubview:_publisher.view];
     
     // subscribe now
     OTError *error = nil;
@@ -1140,6 +1140,52 @@ OTPublisherDelegate>{
     {
         [self showAlert:[error localizedDescription]];
     }
+    
+//	// default subscribe video to the first subscriber only
+//	if (!_currentSubscriber) {
+//		[self showAsCurrentSubscriber:subscriber];
+//	} else {
+//		subscriber.subscribeToVideo = NO;
+//	}
+//    
+//	// set scrollview content width based on number of subscribers connected.
+//	[videoContainerView setContentSize:
+//     CGSizeMake(videoContainerView.frame.size.width * (count + 1),
+//                videoContainerView.frame.size.height - 18)];
+//    
+//	[allStreams setObject:stream forKey:stream.connection.connectionId];
+    
+	[subscriber release];
+    
+//    [self resetArrowsStates];
+}
+
+- (void)subscriberDidConnectToStream:(OTSubscriberKit *)subscriber
+{
+	NSLog(@"subscriberDidConnectToStream %@", subscriber.stream.name);
+    
+    // create subscriber
+    OTSubscriber *sub = subscriber;
+	[allSubscribers setObject:subscriber forKey:sub.stream.connection.connectionId];
+	[allConnectionsIds addObject:sub.stream.connection.connectionId];
+    
+    // set subscriber position and size
+	CGFloat containerWidth = CGRectGetWidth(videoContainerView.bounds);
+	CGFloat containerHeight = CGRectGetHeight(videoContainerView.bounds);
+	int count = [allConnectionsIds count] - 1;
+	[sub.view setFrame:
+     CGRectMake(count *
+                CGRectGetWidth(videoContainerView.bounds),
+                0,
+                containerWidth,
+                containerHeight)];
+    
+	sub.view.tag = count;
+    
+    // add to video container view
+	[videoContainerView insertSubview:sub.view
+                         belowSubview:_publisher.view];
+    
     
 	// default subscribe video to the first subscriber only
 	if (!_currentSubscriber) {
@@ -1153,16 +1199,9 @@ OTPublisherDelegate>{
      CGSizeMake(videoContainerView.frame.size.width * (count + 1),
                 videoContainerView.frame.size.height - 18)];
     
-	[allStreams setObject:stream forKey:stream.connection.connectionId];
-    
-	[subscriber release];
+	[allStreams setObject:sub.stream forKey:sub.stream.connection.connectionId];
     
     [self resetArrowsStates];
-}
-
-- (void)subscriberDidConnectToStream:(OTSubscriberKit *)subscriber
-{
-	NSLog(@"subscriberDidConnectToStream %@", subscriber.stream.name);
 }
 
 - (void)  session:(OTSession *)mySession
