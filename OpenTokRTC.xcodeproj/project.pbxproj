@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A51E431A1935B15700CBBDF0 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A51E43191935B15700CBBDF0 /* GLKit.framework */; };
+		A52E57EF194EDD6E00FFC721 /* archiving_on-10.png in Resources */ = {isa = PBXBuildFile; fileRef = A52E57ED194EDD6E00FFC721 /* archiving_on-10.png */; };
+		A52E57F0194EDD6E00FFC721 /* archiving_on-10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A52E57EE194EDD6E00FFC721 /* archiving_on-10@2x.png */; };
 		A56C2F3018FFEDA900B1B7E0 /* TBExamplePublisher.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C2F2718FFEDA900B1B7E0 /* TBExamplePublisher.m */; };
 		A56C2F3118FFEDA900B1B7E0 /* TBExampleSubscriber.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C2F2918FFEDA900B1B7E0 /* TBExampleSubscriber.m */; };
 		A56C2F3218FFEDA900B1B7E0 /* TBExampleVideoCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C2F2B18FFEDA900B1B7E0 /* TBExampleVideoCapture.m */; };
@@ -114,6 +116,8 @@
 
 /* Begin PBXFileReference section */
 		A51E43191935B15700CBBDF0 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		A52E57ED194EDD6E00FFC721 /* archiving_on-10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "archiving_on-10.png"; sourceTree = "<group>"; };
+		A52E57EE194EDD6E00FFC721 /* archiving_on-10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "archiving_on-10@2x.png"; sourceTree = "<group>"; };
 		A56C2F2618FFEDA900B1B7E0 /* TBExamplePublisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBExamplePublisher.h; sourceTree = "<group>"; };
 		A56C2F2718FFEDA900B1B7E0 /* TBExamplePublisher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBExamplePublisher.m; sourceTree = "<group>"; };
 		A56C2F2818FFEDA900B1B7E0 /* TBExampleSubscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBExampleSubscriber.h; sourceTree = "<group>"; };
@@ -344,6 +348,8 @@
 		E423F48517BC4D48007F17DF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A52E57ED194EDD6E00FFC721 /* archiving_on-10.png */,
+				A52E57EE194EDD6E00FFC721 /* archiving_on-10@2x.png */,
 				A5A9DBC8191A45820023BC6A /* icon_arrowLeft_enabled-28.png */,
 				A5A9DBC9191A45820023BC6A /* icon_arrowLeft_enabled-28@2x.png */,
 				A5A9DBCA191A45820023BC6A /* icon_arrowRight_enabled-28.png */,
@@ -524,6 +530,7 @@
 				A59DCCFD1918E8A400855A23 /* archiving_pulse-15.png in Resources */,
 				A59DCD021918E8A400855A23 /* Bandwidth_meter_weak-23@2x.png in Resources */,
 				A59DCD031918E8A400855A23 /* camera_switch-33.png in Resources */,
+				A52E57F0194EDD6E00FFC721 /* archiving_on-10@2x.png in Resources */,
 				E423F48917BC4D48007F17DF /* InfoPlist.strings in Resources */,
 				A59DCCF91918E8A400855A23 /* camera-switch_black-33.png in Resources */,
 				A59DCCFA1918E8A400855A23 /* camera-switch_black-33@2x.png in Resources */,
@@ -543,6 +550,7 @@
 				A59DCD061918E8A400855A23 /* mic_muted-24@2x.png in Resources */,
 				A59DCD0F1918E8A400855A23 /* TB Bug-30.png in Resources */,
 				E48A137217F3AE7000259FBE /* Icon-29x29@2x.png in Resources */,
+				A52E57EF194EDD6E00FFC721 /* archiving_on-10.png in Resources */,
 				E423F49517BC4D48007F17DF /* Default-568h@2x.png in Resources */,
 				E423F49817BC4D48007F17DF /* MainStoryboard.storyboard in Resources */,
 				E4A4641117DC2A3300AA4FE9 /* AvantGarDemObl in Resources */,
@@ -740,10 +748,11 @@
 					"\"$(SRCROOT)/webrtcDemoiOS\"",
 				);
 				INFOPLIST_FILE = "webrtcDemoiOS/OpenTokRTC-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = OpenTokRTC;
-				PROVISIONING_PROFILE = "BA517B39-6355-4FF1-B1AF-1B70ECF34A61";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
@@ -765,10 +774,11 @@
 					"\"$(SRCROOT)/webrtcDemoiOS\"",
 				);
 				INFOPLIST_FILE = "webrtcDemoiOS/OpenTokRTC-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = OpenTokRTC;
-				PROVISIONING_PROFILE = "BA517B39-6355-4FF1-B1AF-1B70ECF34A61";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
