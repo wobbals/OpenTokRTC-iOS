@@ -12,9 +12,13 @@
 @interface ViewController : UIViewController <UIGestureRecognizerDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *appTitle;
-@property (strong, nonatomic) IBOutlet UITextField *roomName;
-@property (strong, nonatomic) IBOutlet UILabel *hintLabel;
-@property (strong, nonatomic) IBOutlet UIButton *buttonName;
-@property (retain, nonatomic) IBOutlet UITextField *userName;
+@property (strong, nonatomic) IBOutlet UITextField *roomNameTxtField;
+@property (retain, nonatomic) IBOutlet UITextField *userNameTxtField;
+@property (strong, nonatomic) IBOutlet UILabel *roomNameLbl;
+@property (strong, nonatomic) IBOutlet UILabel *userNameNameLbl;
+@property (strong, nonatomic) IBOutlet UIView *roomNameLineView;
+@property (strong, nonatomic) IBOutlet UIView *userNameLineView;
+@property (strong, nonatomic) IBOutlet UIButton *joinButton;
+@property (strong, nonatomic) IBOutlet UILabel *creditsLbl;
 
 @end
