@@ -41,7 +41,6 @@
 		A59DCD0E1918E8A400855A23 /* Subscriber-Speaker-Mute-35@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A59DCCF61918E8A400855A23 /* Subscriber-Speaker-Mute-35@2x.png */; };
 		A59DCD0F1918E8A400855A23 /* TB Bug-30.png in Resources */ = {isa = PBXBuildFile; fileRef = A59DCCF71918E8A400855A23 /* TB Bug-30.png */; };
 		A59DCD101918E8A400855A23 /* TB Bug-30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A59DCCF81918E8A400855A23 /* TB Bug-30@2x.png */; };
-		A59DCD1F1919243600855A23 /* OpenTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59DCD1E1919243600855A23 /* OpenTok.framework */; };
 		A5A9DBD0191A45820023BC6A /* icon_arrowLeft_enabled-28.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A9DBC8191A45820023BC6A /* icon_arrowLeft_enabled-28.png */; };
 		A5A9DBD1191A45820023BC6A /* icon_arrowLeft_enabled-28@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A9DBC9191A45820023BC6A /* icon_arrowLeft_enabled-28@2x.png */; };
 		A5A9DBD2191A45820023BC6A /* icon_arrowRight_enabled-28.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A9DBCA191A45820023BC6A /* icon_arrowRight_enabled-28.png */; };
@@ -50,6 +49,7 @@
 		A5A9DBD5191A45820023BC6A /* icon_arrowLeft_disabled-28@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A9DBCD191A45820023BC6A /* icon_arrowLeft_disabled-28@2x.png */; };
 		A5A9DBD6191A45820023BC6A /* icon_arrowRight_disabled-28.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A9DBCE191A45820023BC6A /* icon_arrowRight_disabled-28.png */; };
 		A5A9DBD7191A45820023BC6A /* icon_arrowRight_disabled-28@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A9DBCF191A45820023BC6A /* icon_arrowRight_disabled-28@2x.png */; };
+		A5DD4C961962459A00973C99 /* OpenTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A56C2F3518FFEE0F00B1B7E0 /* OpenTok.framework */; };
 		E423F47F17BC4D48007F17DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E423F47E17BC4D48007F17DF /* UIKit.framework */; };
 		E423F48117BC4D48007F17DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E423F48017BC4D48007F17DF /* Foundation.framework */; };
 		E423F48317BC4D48007F17DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E423F48217BC4D48007F17DF /* CoreGraphics.framework */; };
@@ -233,11 +233,11 @@
 				A56C2F3A18FFEF5100B1B7E0 /* libxml2.dylib in Frameworks */,
 				A56C2F3818FFEF4700B1B7E0 /* libsqlite3.dylib in Frameworks */,
 				E423F4DC17BC4EDA007F17DF /* libicucore.dylib in Frameworks */,
-				A59DCD1F1919243600855A23 /* OpenTok.framework in Frameworks */,
 				E423F47F17BC4D48007F17DF /* UIKit.framework in Frameworks */,
 				E423F48117BC4D48007F17DF /* Foundation.framework in Frameworks */,
 				E423F48317BC4D48007F17DF /* CoreGraphics.framework in Frameworks */,
 				E423F4C717BC4DE2007F17DF /* CoreTelephony.framework in Frameworks */,
+				A5DD4C961962459A00973C99 /* OpenTok.framework in Frameworks */,
 				E423F4C817BC4DE2007F17DF /* MobileCoreServices.framework in Frameworks */,
 				E423F4C917BC4DE2007F17DF /* CFNetwork.framework in Frameworks */,
 				E423F4CA17BC4DE2007F17DF /* SystemConfiguration.framework in Frameworks */,
@@ -482,7 +482,7 @@
 			name = OpenTokRTCTests;
 			productName = webrtcDemoiOSTests;
 			productReference = E423F4A117BC4D48007F17DF /* OpenTokRTCTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -738,7 +738,10 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "/Users/sridhar/src/objc-sdk-src";
+				FRAMEWORK_SEARCH_PATHS = (
+					"/Users/sridhar/src/objc-sdk-src",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "webrtcDemoiOS/OpenTokRTC-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -752,6 +755,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = OpenTokRTC;
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
@@ -764,7 +768,10 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "/Users/sridhar/src/objc-sdk-src";
+				FRAMEWORK_SEARCH_PATHS = (
+					"/Users/sridhar/src/objc-sdk-src",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "webrtcDemoiOS/OpenTokRTC-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -778,6 +785,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = OpenTokRTC;
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
