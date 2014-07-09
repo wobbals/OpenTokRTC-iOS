@@ -171,6 +171,34 @@ OTPublisherDelegate>{
             [self.endCallButton sendActionsForControlEvents:UIControlEventTouchDown];
         }
     }];
+    
+    // application background/foreground monitoring for publish/subscribe video
+    // toggling
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(enteringBackgroundMode:)
+     name:UIApplicationWillResignActiveNotification
+     object:nil];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(leavingBackgroundMode:)
+     name:UIApplicationDidBecomeActiveNotification
+     object:nil];
+    
+
+}
+
+- (void)enteringBackgroundMode:(NSNotification*)notification
+{
+    _publisher.publishVideo = NO;
+    _currentSubscriber.subscribeToVideo = NO;
+}
+
+- (void)leavingBackgroundMode:(NSNotification*)notification
+{
+    _publisher.publishVideo = YES;
+    _currentSubscriber.subscribeToVideo = YES;
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
@@ -1288,6 +1316,16 @@ OTPublisherDelegate>{
 
 - (void)dealloc
 {
+    [[NSNotificationCenter defaultCenter]
+     removeObserver:self
+     name:UIApplicationWillResignActiveNotification
+     object:nil];
+
+    [[NSNotificationCenter defaultCenter]
+     removeObserver:self
+     name:UIApplicationDidBecomeActiveNotification
+     object:nil];
+
 	[_cameraToggleButton release];
 	[_audioPubUnpubButton release];
 	[_userNameLabel release];
