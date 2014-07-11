@@ -8,8 +8,6 @@
 
 #import "RoomViewController.h"
 #import <OpenTok/OpenTok.h>
-#import "TBExamplePublisher.h"
-#import "TBExampleSubscriber.h"
 
 NSString *kApiKey = @"";
 NSString *kSessionId = @"";
@@ -859,7 +857,7 @@ OTPublisherDelegate>{
     [self resetArrowsStates];
 }
 
-- (void)showAsCurrentSubscriber:(TBExampleSubscriber *)subscriber
+- (void)showAsCurrentSubscriber:(OTSubscriber *)subscriber
 {
     // scroll view tapping bug
     if(subscriber == _currentSubscriber)
@@ -957,7 +955,7 @@ OTPublisherDelegate>{
         int currentPage = (int)(videoContainerView.contentOffset.x /
                                 videoContainerView.frame.size.width) ;
 
-        TBExampleSubscriber *nextSubscriber = [allSubscribers objectForKey:
+        OTSubscriber *nextSubscriber = [allSubscribers objectForKey:
                                                [allConnectionsIds objectAtIndex:currentPage - 1]];
         
         [self showAsCurrentSubscriber:nextSubscriber];
@@ -971,7 +969,7 @@ OTPublisherDelegate>{
         int currentPage = (int)(videoContainerView.contentOffset.x /
                                 videoContainerView.frame.size.width) ;
         
-        TBExampleSubscriber *nextSubscriber = [allSubscribers objectForKey:
+        OTSubscriber *nextSubscriber = [allSubscribers objectForKey:
                                                [allConnectionsIds objectAtIndex:currentPage + 1]];
         
         [self showAsCurrentSubscriber:nextSubscriber];
@@ -1048,7 +1046,7 @@ OTPublisherDelegate>{
     // arrange all subscribers horizontally one by one.
 	for (int i = 0; i < [allConnectionsIds count]; i++)
 	{
-		TBExampleSubscriber *subscriber = [allSubscribers
+		OTSubscriber *subscriber = [allSubscribers
                                            valueForKey:[allConnectionsIds
                                                         objectAtIndex:i]];
         subscriber.view.tag = i;
@@ -1073,7 +1071,7 @@ OTPublisherDelegate>{
     // remove all subscriber views fro  m video container
 	for (int i = 0; i < [allConnectionsIds count]; i++)
 	{
-		TBExampleSubscriber *subscriber = [allSubscribers valueForKey:
+		OTSubscriber *subscriber = [allSubscribers valueForKey:
                                            [allConnectionsIds objectAtIndex:i]];
 		[subscriber.view removeFromSuperview];
 	}
@@ -1106,7 +1104,7 @@ OTPublisherDelegate>{
 	NSLog(@"streamDestroyed %@", stream.connection.connectionId);
 	
     // unsubscribe first
-	TBExampleSubscriber *subscriber = [allSubscribers objectForKey:
+	OTSubscriber *subscriber = [allSubscribers objectForKey:
                                        stream.connection.connectionId];
     
 //    OTError *error = nil;
@@ -1138,7 +1136,7 @@ OTPublisherDelegate>{
 {
 	
     // create subscriber
-	TBExampleSubscriber *subscriber = [[OTSubscriber alloc]
+	OTSubscriber *subscriber = [[OTSubscriber alloc]
                                        initWithStream:stream delegate:self];
     
 //	[allSubscribers setObject:subscriber forKey:stream.connection.connectionId];
@@ -1193,7 +1191,7 @@ OTPublisherDelegate>{
 	NSLog(@"subscriberDidConnectToStream %@", subscriber.stream.name);
     
     // create subscriber
-    OTSubscriber *sub = subscriber;
+    OTSubscriber *sub = (OTSubscriber *)subscriber;
 	[allSubscribers setObject:subscriber forKey:sub.stream.connection.connectionId];
 	[allConnectionsIds addObject:sub.stream.connection.connectionId];
     
@@ -1217,7 +1215,7 @@ OTPublisherDelegate>{
     
 	// default subscribe video to the first subscriber only
 	if (!_currentSubscriber) {
-		[self showAsCurrentSubscriber:subscriber];
+		[self showAsCurrentSubscriber:(OTSubscriber *)subscriber];
 	} else {
 		subscriber.subscribeToVideo = NO;
 	}
