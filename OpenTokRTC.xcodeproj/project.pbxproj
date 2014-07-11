@@ -10,10 +10,6 @@
 		A51E431A1935B15700CBBDF0 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A51E43191935B15700CBBDF0 /* GLKit.framework */; };
 		A52E57EF194EDD6E00FFC721 /* archiving_on-10.png in Resources */ = {isa = PBXBuildFile; fileRef = A52E57ED194EDD6E00FFC721 /* archiving_on-10.png */; };
 		A52E57F0194EDD6E00FFC721 /* archiving_on-10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A52E57EE194EDD6E00FFC721 /* archiving_on-10@2x.png */; };
-		A56C2F3018FFEDA900B1B7E0 /* TBExamplePublisher.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C2F2718FFEDA900B1B7E0 /* TBExamplePublisher.m */; };
-		A56C2F3118FFEDA900B1B7E0 /* TBExampleSubscriber.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C2F2918FFEDA900B1B7E0 /* TBExampleSubscriber.m */; };
-		A56C2F3218FFEDA900B1B7E0 /* TBExampleVideoCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C2F2B18FFEDA900B1B7E0 /* TBExampleVideoCapture.m */; };
-		A56C2F3318FFEDA900B1B7E0 /* TBExampleVideoRender.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C2F2D18FFEDA900B1B7E0 /* TBExampleVideoRender.m */; };
 		A56C2F3418FFEDA900B1B7E0 /* ShaderUtilities.c in Sources */ = {isa = PBXBuildFile; fileRef = A56C2F2E18FFEDA900B1B7E0 /* ShaderUtilities.c */; };
 		A56C2F3818FFEF4700B1B7E0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A56C2F3718FFEF4700B1B7E0 /* libsqlite3.dylib */; };
 		A56C2F3A18FFEF5100B1B7E0 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A56C2F3918FFEF5100B1B7E0 /* libxml2.dylib */; };
@@ -118,14 +114,6 @@
 		A51E43191935B15700CBBDF0 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		A52E57ED194EDD6E00FFC721 /* archiving_on-10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "archiving_on-10.png"; sourceTree = "<group>"; };
 		A52E57EE194EDD6E00FFC721 /* archiving_on-10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "archiving_on-10@2x.png"; sourceTree = "<group>"; };
-		A56C2F2618FFEDA900B1B7E0 /* TBExamplePublisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBExamplePublisher.h; sourceTree = "<group>"; };
-		A56C2F2718FFEDA900B1B7E0 /* TBExamplePublisher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBExamplePublisher.m; sourceTree = "<group>"; };
-		A56C2F2818FFEDA900B1B7E0 /* TBExampleSubscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBExampleSubscriber.h; sourceTree = "<group>"; };
-		A56C2F2918FFEDA900B1B7E0 /* TBExampleSubscriber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBExampleSubscriber.m; sourceTree = "<group>"; };
-		A56C2F2A18FFEDA900B1B7E0 /* TBExampleVideoCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBExampleVideoCapture.h; sourceTree = "<group>"; };
-		A56C2F2B18FFEDA900B1B7E0 /* TBExampleVideoCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBExampleVideoCapture.m; sourceTree = "<group>"; };
-		A56C2F2C18FFEDA900B1B7E0 /* TBExampleVideoRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBExampleVideoRender.h; sourceTree = "<group>"; };
-		A56C2F2D18FFEDA900B1B7E0 /* TBExampleVideoRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBExampleVideoRender.m; sourceTree = "<group>"; };
 		A56C2F2E18FFEDA900B1B7E0 /* ShaderUtilities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ShaderUtilities.c; sourceTree = "<group>"; };
 		A56C2F2F18FFEDA900B1B7E0 /* ShaderUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderUtilities.h; sourceTree = "<group>"; };
 		A56C2F3718FFEF4700B1B7E0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -325,14 +313,6 @@
 				E423F49A17BC4D48007F17DF /* ViewController.m */,
 				E423F4FA17BC5318007F17DF /* RoomViewController.h */,
 				E423F4FB17BC5318007F17DF /* RoomViewController.m */,
-				A56C2F2618FFEDA900B1B7E0 /* TBExamplePublisher.h */,
-				A56C2F2718FFEDA900B1B7E0 /* TBExamplePublisher.m */,
-				A56C2F2818FFEDA900B1B7E0 /* TBExampleSubscriber.h */,
-				A56C2F2918FFEDA900B1B7E0 /* TBExampleSubscriber.m */,
-				A56C2F2A18FFEDA900B1B7E0 /* TBExampleVideoCapture.h */,
-				A56C2F2B18FFEDA900B1B7E0 /* TBExampleVideoCapture.m */,
-				A56C2F2C18FFEDA900B1B7E0 /* TBExampleVideoRender.h */,
-				A56C2F2D18FFEDA900B1B7E0 /* TBExampleVideoRender.m */,
 				A56C2F2E18FFEDA900B1B7E0 /* ShaderUtilities.c */,
 				A56C2F2F18FFEDA900B1B7E0 /* ShaderUtilities.h */,
 				E423F48517BC4D48007F17DF /* Supporting Files */,
@@ -610,14 +590,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E423F48B17BC4D48007F17DF /* main.m in Sources */,
-				A56C2F3018FFEDA900B1B7E0 /* TBExamplePublisher.m in Sources */,
 				E423F48F17BC4D48007F17DF /* AppDelegate.m in Sources */,
 				E423F49B17BC4D48007F17DF /* ViewController.m in Sources */,
 				E423F4FC17BC5318007F17DF /* RoomViewController.m in Sources */,
-				A56C2F3318FFEDA900B1B7E0 /* TBExampleVideoRender.m in Sources */,
-				A56C2F3118FFEDA900B1B7E0 /* TBExampleSubscriber.m in Sources */,
 				A56C2F3418FFEDA900B1B7E0 /* ShaderUtilities.c in Sources */,
-				A56C2F3218FFEDA900B1B7E0 /* TBExampleVideoCapture.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -734,10 +710,7 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"/Users/sridhar/src/objc-sdk-src",
-					"$(PROJECT_DIR)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "webrtcDemoiOS/OpenTokRTC-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -764,10 +737,7 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"/Users/sridhar/src/objc-sdk-src",
-					"$(PROJECT_DIR)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "webrtcDemoiOS/OpenTokRTC-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
