@@ -44,6 +44,7 @@ OTPublisherDelegate>{
 	NSMutableDictionary *allStreams;
 	NSMutableDictionary *allSubscribers;
 	NSMutableArray *allConnectionsIds;
+    NSMutableArray *backgroundConnectedStreams;
     
 	OTSession *_session;
 	OTPublisher *_publisher;
@@ -116,6 +117,7 @@ OTPublisherDelegate>{
 	allStreams = [[NSMutableDictionary alloc] init];
 	allSubscribers = [[NSMutableDictionary alloc] init];
 	allConnectionsIds = [[NSMutableArray alloc] init];
+    backgroundConnectedStreams = [[NSMutableArray alloc] init];
     
     
 	// set up look of the page
@@ -197,6 +199,23 @@ OTPublisherDelegate>{
 {
     _publisher.publishVideo = YES;
     _currentSubscriber.subscribeToVideo = YES;
+    
+    //now subscribe to any background connected streams
+    for (OTStream *stream in backgroundConnectedStreams)
+    {
+        // create subscriber
+        OTSubscriber *subscriber = [[OTSubscriber alloc]
+                                    initWithStream:stream delegate:self];
+        // subscribe now
+        OTError *error = nil;
+        [_session subscribe:subscriber error:&error];
+        if (error)
+        {
+            [self showAlert:[error localizedDescription]];
+        }
+        [subscriber release];
+    }
+    [backgroundConnectedStreams removeAllObjects];
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
@@ -1135,55 +1154,28 @@ OTPublisherDelegate>{
 - (void)createSubscriber:(OTStream *)stream
 {
 	
-    // create subscriber
-	OTSubscriber *subscriber = [[OTSubscriber alloc]
+    if ([[UIApplication sharedApplication] applicationState] ==
+        UIApplicationStateBackground ||
+        [[UIApplication sharedApplication] applicationState] ==
+        UIApplicationStateInactive)
+    {
+        [backgroundConnectedStreams addObject:stream];
+    } else
+    {
+        // create subscriber
+        OTSubscriber *subscriber = [[OTSubscriber alloc]
                                        initWithStream:stream delegate:self];
     
-//	[allSubscribers setObject:subscriber forKey:stream.connection.connectionId];
-//	[allConnectionsIds addObject:stream.connection.connectionId];
-//    
-//    // set subscriber position and size
-//	CGFloat containerWidth = CGRectGetWidth(videoContainerView.bounds);
-//	CGFloat containerHeight = CGRectGetHeight(videoContainerView.bounds);
-//	int count = [allConnectionsIds count] - 1;
-//	[subscriber.view setFrame:
-//     CGRectMake(count *
-//                CGRectGetWidth(videoContainerView.bounds),
-//                0,
-//                containerWidth,
-//                containerHeight)];
-//    
-//	subscriber.view.tag = count;
-//    
-//    // add to video container view
-//	[videoContainerView insertSubview:subscriber.view
-//                         belowSubview:_publisher.view];
-    
-    // subscribe now
-    OTError *error = nil;
-	[_session subscribe:subscriber error:&error];
-    if (error)
-    {
-        [self showAlert:[error localizedDescription]];
+        // subscribe now
+        OTError *error = nil;
+        [_session subscribe:subscriber error:&error];
+        if (error)
+        {
+            [self showAlert:[error localizedDescription]];
+        }
+        [subscriber release];
     }
     
-//	// default subscribe video to the first subscriber only
-//	if (!_currentSubscriber) {
-//		[self showAsCurrentSubscriber:subscriber];
-//	} else {
-//		subscriber.subscribeToVideo = NO;
-//	}
-//    
-//	// set scrollview content width based on number of subscribers connected.
-//	[videoContainerView setContentSize:
-//     CGSizeMake(videoContainerView.frame.size.width * (count + 1),
-//                videoContainerView.frame.size.height - 18)];
-//    
-//	[allStreams setObject:stream forKey:stream.connection.connectionId];
-    
-	[subscriber release];
-    
-//    [self resetArrowsStates];
 }
 
 - (void)subscriberDidConnectToStream:(OTSubscriberKit *)subscriber
