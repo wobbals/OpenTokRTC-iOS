@@ -1045,6 +1045,8 @@ OTPublisherDelegate>{
 
 - (void)sessionDidConnect:(OTSession *)session
 {
+    //Forces the application to not let the iPhone go to sleep.
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
     // now publish
 	OTError *error;
 	[_session publish:_publisher error:&error];
@@ -1115,6 +1117,9 @@ OTPublisherDelegate>{
     {
         [self.navigationController popViewControllerAnimated:YES];
     }
+    
+    //Allows the iPhone to go to sleep if there is not touch activity.
+    [UIApplication sharedApplication].idleTimerDisabled = NO;
 }
 
 - (void)    session:(OTSession *)session
